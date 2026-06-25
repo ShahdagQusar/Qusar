@@ -1,0 +1,1735 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Şahdağ Qusar FK — Rəsmi Sayt</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --blue:#0A4FBF;
+  --blue-dark:#062E7A;
+  --blue-deep:#041E52;
+  --blue-light:#1A6AE0;
+  --blue-faint:#EEF4FF;
+  --gold:#E8B800;
+  --gold-light:#FFF3B0;
+  --white:#FFFFFF;
+  --text:#0D1929;
+  --text-2:#3D4F63;
+  --text-3:#6B7F96;
+  --border:rgba(10,79,191,0.12);
+  --card:#FFFFFF;
+  --page:#F2F6FF;
+  --radius:14px;
+  --radius-sm:8px;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--page);color:var(--text);min-height:100vh;}
+
+/* ===== NAV ===== */
+nav{
+  background:var(--blue-deep);
+  height:68px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 32px;position:sticky;top:0;z-index:999;
+  border-bottom:1px solid rgba(255,255,255,0.07);
+  box-shadow:0 4px 24px rgba(4,30,82,0.35);
+}
+.nav-brand{display:flex;align-items:center;gap:14px;cursor:pointer;}
+.nav-crest{
+  width:44px;height:44px;border-radius:50%;
+  background:linear-gradient(135deg,var(--blue-light),var(--blue-dark));
+  border:2px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:900;color:var(--gold);
+  letter-spacing:-1px;flex-shrink:0;overflow:hidden;
+}
+.nav-crest img{width:100%;height:100%;object-fit:contain;padding:5px;}
+.nav-title{color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:19px;font-weight:800;letter-spacing:0.5px;line-height:1.1;}
+.nav-sub{color:rgba(255,255,255,0.4);font-size:10px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;}
+.nav-links{display:flex;gap:2px;align-items:center;}
+.nav-btn{
+  background:none;border:none;color:rgba(255,255,255,0.65);
+  padding:9px 15px;border-radius:var(--radius-sm);
+  font-size:13px;font-weight:600;cursor:pointer;
+  transition:all 0.15s;display:flex;align-items:center;gap:6px;letter-spacing:0.1px;
+}
+.nav-btn i{font-size:16px;}
+.nav-btn:hover{background:rgba(255,255,255,0.1);color:#fff;}
+.nav-btn.active{background:rgba(232,184,0,0.18);color:var(--gold);}
+
+/* ===== PAGES ===== */
+.page{display:none;animation:fadeIn 0.25s ease;}
+.page.active{display:block;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+
+/* ===== HERO ===== */
+.hero{
+  background:linear-gradient(160deg,var(--blue-deep) 0%,var(--blue-dark) 45%,var(--blue) 100%);
+  padding:80px 32px 64px;
+  text-align:center;position:relative;overflow:hidden;
+}
+.hero-pattern{
+  position:absolute;inset:0;pointer-events:none;opacity:0.06;
+  background-image:repeating-linear-gradient(0deg,transparent,transparent 59px,rgba(255,255,255,0.5) 60px),
+    repeating-linear-gradient(90deg,transparent,transparent 59px,rgba(255,255,255,0.5) 60px);
+}
+.hero-glow{
+  position:absolute;top:-80px;left:50%;transform:translateX(-50%);
+  width:600px;height:400px;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(232,184,0,0.12) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-crest{
+  width:96px;height:96px;object-fit:contain;margin:0 auto 18px;display:block;
+  filter:drop-shadow(0 8px 24px rgba(0,0,0,0.35));position:relative;z-index:1;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(232,184,0,0.15);border:1px solid rgba(232,184,0,0.35);
+  color:var(--gold);font-size:11px;font-weight:700;
+  padding:5px 14px;border-radius:30px;letter-spacing:1.5px;
+  text-transform:uppercase;margin-bottom:24px;
+}
+.hero h1{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:72px;font-weight:900;color:#fff;
+  letter-spacing:-1px;line-height:0.95;margin-bottom:16px;
+  text-shadow:0 2px 32px rgba(0,0,0,0.3);
+}
+.hero h1 .gold{color:var(--gold);}
+.hero-desc{color:rgba(255,255,255,0.6);font-size:15px;font-weight:500;margin-bottom:44px;letter-spacing:0.3px;}
+.hero-stats{
+  display:inline-flex;gap:0;
+  background:rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:16px;overflow:hidden;
+}
+.hero-stat{padding:20px 36px;text-align:center;border-right:1px solid rgba(255,255,255,0.08);}
+.hero-stat:last-child{border-right:none;}
+.hero-stat-num{font-family:'Barlow Condensed',sans-serif;font-size:32px;font-weight:900;color:var(--gold);}
+.hero-stat-label{font-size:11px;color:rgba(255,255,255,0.45);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-top:3px;}
+
+/* ===== NEXT MATCH BAR ===== */
+.next-match-bar{
+  background:var(--gold);
+  padding:14px 32px;
+  display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;
+}
+.nm-label{font-size:10px;font-weight:800;color:rgba(0,0,0,0.5);letter-spacing:2px;text-transform:uppercase;display:flex;align-items:center;gap:6px;}
+.nm-label i{font-size:14px;}
+.nm-teams{font-size:17px;font-weight:800;color:#1a1000;letter-spacing:0.3px;}
+.nm-sep{color:rgba(0,0,0,0.3);margin:0 8px;}
+.nm-info{font-size:12px;color:rgba(0,0,0,0.5);font-weight:600;display:flex;align-items:center;gap:6px;}
+
+/* ===== SECTIONS ===== */
+.section{padding:48px 32px;}
+.section-eyebrow{font-size:11px;font-weight:700;color:var(--blue);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.section-eyebrow::after{content:'';flex:1;height:1px;background:var(--border);}
+.section-heading{font-family:'Barlow Condensed',sans-serif;font-size:34px;font-weight:800;color:var(--text);margin-bottom:28px;letter-spacing:-0.3px;}
+
+/* ===== NEWS ===== */
+.news-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;}
+.news-card{
+  background:var(--card);border-radius:var(--radius);
+  border:1px solid var(--border);overflow:hidden;
+  cursor:pointer;transition:all 0.2s;
+}
+.news-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(10,79,191,0.13);border-color:rgba(10,79,191,0.25);}
+.news-img{height:130px;display:flex;align-items:center;justify-content:center;font-size:44px;position:relative;}
+.news-img-blue{background:linear-gradient(135deg,#EEF4FF,#D6E8FF);}
+.news-img-gold{background:linear-gradient(135deg,#FFFBEA,#FFF0B0);}
+.news-img-green{background:linear-gradient(135deg,#EDFAF3,#C8F0DA);}
+.news-cat{
+  position:absolute;top:10px;left:10px;
+  background:var(--blue-deep);color:#fff;
+  font-size:9px;font-weight:700;padding:4px 10px;border-radius:20px;letter-spacing:1px;text-transform:uppercase;
+}
+.news-body{padding:16px;}
+.news-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:8px;line-height:1.45;}
+.news-meta{font-size:11px;color:var(--text-3);display:flex;align-items:center;gap:6px;}
+.news-meta i{font-size:13px;}
+
+/* ===== PLAYERS ===== */
+.pos-filter{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap;}
+.filter-btn{
+  background:var(--card);border:1px solid var(--border);
+  padding:8px 18px;border-radius:30px;font-size:12px;font-weight:700;
+  color:var(--text-2);cursor:pointer;transition:all 0.15s;
+  display:flex;align-items:center;gap:6px;
+}
+.filter-btn i{font-size:15px;}
+.filter-btn:hover{border-color:var(--blue);color:var(--blue);}
+.filter-btn.active{background:var(--blue);color:#fff;border-color:var(--blue);}
+.players-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;}
+.player-card{
+  background:var(--card);border-radius:var(--radius);
+  border:1px solid var(--border);padding:20px 14px 16px;
+  text-align:center;cursor:pointer;transition:all 0.2s;
+  position:relative;overflow:hidden;
+}
+.player-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,var(--blue),var(--blue-light));
+  opacity:0;transition:opacity 0.2s;
+}
+.player-card:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(10,79,191,0.12);border-color:rgba(10,79,191,0.3);}
+.player-card:hover::before{opacity:1;}
+.player-card.sel{border-color:var(--blue);box-shadow:0 0 0 2px rgba(10,79,191,0.2);}
+.player-card.sel::before{opacity:1;}
+.player-num{
+  position:absolute;top:10px;right:10px;
+  font-size:10px;font-weight:800;color:var(--text-3);
+  background:var(--blue-faint);padding:2px 7px;border-radius:6px;
+}
+.player-avatar-wrap{position:relative;width:72px;height:72px;margin:0 auto 12px;}
+.player-photo{
+  width:72px;height:72px;border-radius:50%;object-fit:cover;
+  border:3px solid #fff;box-shadow:0 4px 16px rgba(10,79,191,0.18);
+}
+.player-initials{
+  width:72px;height:72px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:900;
+  color:#fff;border:3px solid rgba(255,255,255,0.3);
+  box-shadow:0 4px 16px rgba(0,0,0,0.2);
+}
+.player-pos-badge{
+  position:absolute;bottom:-3px;right:-3px;
+  font-size:8px;font-weight:800;padding:2px 5px;border-radius:5px;
+  letter-spacing:0.5px;border:2px solid #fff;
+}
+.pos-gk{background:#7B3FBE;color:#fff;}
+.pos-df{background:#1A6AE0;color:#fff;}
+.pos-mf{background:#0E8C5A;color:#fff;}
+.pos-fw{background:#C0390A;color:#fff;}
+.player-name{font-size:13px;font-weight:700;color:var(--text);line-height:1.25;margin-bottom:3px;}
+.player-role{font-size:11px;color:var(--text-3);font-weight:500;}
+.player-flag{font-size:16px;margin-top:6px;}
+
+/* ===== PLAYER DETAIL ===== */
+.player-detail{
+  background:var(--card);border-radius:var(--radius);
+  border:1px solid rgba(10,79,191,0.2);
+  padding:24px;margin-bottom:28px;
+  display:none;position:relative;
+  box-shadow:0 8px 32px rgba(10,79,191,0.1);
+}
+.player-detail.open{display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start;}
+.pd-photo-wrap{position:relative;flex-shrink:0;}
+.pd-photo{
+  width:96px;height:96px;border-radius:50%;object-fit:cover;
+  border:4px solid var(--blue-faint);box-shadow:0 6px 20px rgba(10,79,191,0.2);
+}
+.pd-initials{
+  width:96px;height:96px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:900;color:#fff;
+  box-shadow:0 6px 20px rgba(0,0,0,0.2);flex-shrink:0;
+}
+.pd-info{flex:1;min-width:180px;}
+.pd-info h3{font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:800;color:var(--text);margin-bottom:4px;}
+.pd-meta{font-size:12px;color:var(--text-3);margin-bottom:14px;display:flex;flex-wrap:wrap;gap:8px;}
+.pd-meta-tag{background:var(--blue-faint);color:var(--blue);padding:3px 10px;border-radius:6px;font-weight:600;display:flex;align-items:center;gap:4px;}
+.pd-meta-tag i{font-size:12px;}
+.pd-stats{display:flex;gap:20px;flex-wrap:wrap;}
+.pd-stat{text-align:center;}
+.pd-stat-num{font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:900;color:var(--blue);}
+.pd-stat-label{font-size:10px;color:var(--text-3);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-top:2px;}
+.pd-close{
+  position:absolute;top:16px;right:16px;
+  background:var(--blue-faint);border:none;color:var(--blue);
+  width:32px;height:32px;border-radius:8px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;font-size:18px;transition:all 0.15s;
+}
+.pd-close:hover{background:var(--blue);color:#fff;}
+
+/* ===== RESULTS ===== */
+.tabs{display:flex;gap:4px;margin-bottom:24px;border-bottom:2px solid var(--border);padding-bottom:0;}
+.tab{
+  background:none;border:none;padding:11px 20px;
+  font-size:13px;font-weight:700;color:var(--text-3);
+  cursor:pointer;border-bottom:2px solid transparent;
+  margin-bottom:-2px;transition:all 0.15s;display:flex;align-items:center;gap:7px;
+}
+.tab i{font-size:16px;}
+.tab.active{color:var(--blue);border-bottom-color:var(--blue);}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+.results-list,.fixtures-list{display:flex;flex-direction:column;gap:8px;}
+.result-row,.fixture-row{
+  background:var(--card);border-radius:var(--radius-sm);
+  border:1px solid var(--border);padding:14px 18px;
+  display:flex;align-items:center;gap:14px;transition:all 0.15s;
+}
+.result-row:hover,.fixture-row:hover{border-color:rgba(10,79,191,0.25);box-shadow:0 4px 16px rgba(10,79,191,0.07);}
+.result-date,.fixture-date{font-size:11px;color:var(--text-3);font-weight:600;min-width:78px;display:flex;flex-direction:column;gap:2px;}
+.result-date i,.fixture-date i{font-size:13px;margin-bottom:2px;}
+.result-teams{flex:1;font-size:14px;font-weight:700;color:var(--text);}
+.result-teams .muted{color:var(--text-3);font-weight:500;font-size:12px;margin-left:6px;}
+.result-comp{font-size:11px;color:var(--text-3);margin-top:3px;font-weight:500;display:flex;align-items:center;gap:4px;}
+.result-comp i{font-size:12px;}
+.result-score{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:900;color:var(--text);min-width:56px;text-align:center;}
+.result-badge{font-size:11px;font-weight:800;padding:4px 10px;border-radius:8px;min-width:30px;text-align:center;letter-spacing:0.5px;}
+.win{background:#EDFAF3;color:#0E6B35;}
+.draw{background:#FFF8E0;color:#7A6000;}
+.loss{background:#FDEAEA;color:#A32D2D;}
+.fixture-info{flex:1;}
+.fixture-teams{font-size:14px;font-weight:700;color:var(--text);}
+.fixture-meta{font-size:11px;color:var(--text-3);margin-top:4px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.fixture-meta i{font-size:13px;vertical-align:-2px;margin-right:3px;}
+.fixture-tag{
+  background:var(--blue-deep);color:rgba(255,255,255,0.85);
+  font-size:10px;font-weight:700;padding:5px 14px;border-radius:8px;letter-spacing:0.5px;
+}
+
+/* ===== STANDINGS ===== */
+.standings-wrap{background:var(--card);border-radius:var(--radius);border:1px solid var(--border);overflow:hidden;}
+.standings-table{width:100%;border-collapse:collapse;font-size:13px;}
+.standings-table thead th{
+  font-size:10px;font-weight:800;color:var(--text-3);
+  text-transform:uppercase;letter-spacing:1px;
+  padding:12px 16px;text-align:left;
+  background:var(--blue-faint);
+  border-bottom:2px solid var(--border);
+}
+.standings-table thead th:not(:first-child):not(:nth-child(2)){text-align:center;}
+.standings-table td{padding:12px 16px;border-bottom:1px solid var(--border);}
+.standings-table td:not(:first-child):not(:nth-child(2)):not(:last-child){text-align:center;color:var(--text-2);}
+.standings-table tr:last-child td{border-bottom:none;}
+.standings-table tr.hl{background:linear-gradient(90deg,rgba(10,79,191,0.06),transparent);}
+.standings-table tr.hl .team-name{font-weight:800;color:var(--blue);}
+.standings-table tr:hover{background:var(--blue-faint);}
+.pos-badge{display:inline-flex;width:24px;height:24px;align-items:center;justify-content:center;border-radius:6px;font-size:11px;font-weight:800;}
+.p1{background:var(--gold);color:#3D2B00;}
+.p2{background:#C0C0C0;color:#333;}
+.p3{background:#CD7F32;color:#fff;}
+.pn{background:var(--blue-faint);color:var(--blue);}
+.team-name{font-weight:600;color:var(--text);display:flex;align-items:center;gap:8px;}
+.team-logo{width:22px;height:22px;object-fit:contain;flex-shrink:0;}
+.you{
+  background:var(--blue);color:#fff;
+  font-size:9px;font-weight:800;padding:2px 6px;border-radius:4px;letter-spacing:0.5px;
+}
+.pts-cell{font-weight:800;color:var(--blue)!important;font-size:15px!important;text-align:center!important;}
+.form-pills{display:flex;gap:3px;justify-content:flex-end;}
+.fp{width:20px;height:20px;border-radius:5px;font-size:9px;font-weight:800;display:flex;align-items:center;justify-content:center;}
+.fp-w{background:#EDFAF3;color:#0E6B35;}
+.fp-d{background:#FFF8E0;color:#7A6000;}
+.fp-l{background:#FDEAEA;color:#A32D2D;}
+
+/* ===== ABOUT ===== */
+.about-hero{
+  background:linear-gradient(160deg,var(--blue-deep),var(--blue-dark));
+  padding:56px 32px;text-align:center;
+}
+.about-hero h2{font-family:'Barlow Condensed',sans-serif;font-size:46px;font-weight:900;color:#fff;margin-bottom:10px;}
+.about-hero p{color:rgba(255,255,255,0.55);font-size:14px;}
+.about-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;margin-bottom:32px;}
+.about-card{
+  background:var(--card);border-radius:var(--radius);border:1px solid var(--border);
+  padding:22px;transition:all 0.15s;
+}
+.about-card:hover{border-color:rgba(10,79,191,0.3);box-shadow:0 6px 24px rgba(10,79,191,0.08);}
+.about-icon{
+  width:46px;height:46px;background:var(--blue-faint);border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:14px;font-size:22px;color:var(--blue);
+}
+.about-card h3{font-size:15px;font-weight:700;color:var(--text);margin-bottom:7px;}
+.about-card p{font-size:13px;color:var(--text-3);line-height:1.65;}
+.timeline{border-left:3px solid var(--blue-faint);padding-left:24px;}
+.tl-item{margin-bottom:22px;position:relative;}
+.tl-dot{
+  position:absolute;left:-31px;top:5px;
+  width:12px;height:12px;border-radius:50%;
+  background:var(--blue);border:3px solid #fff;
+  box-shadow:0 0 0 2px var(--blue);
+}
+.tl-year{font-size:11px;font-weight:800;color:var(--blue);margin-bottom:3px;letter-spacing:0.5px;}
+.tl-text{font-size:13px;color:var(--text-2);line-height:1.6;}
+.colors-showcase{
+  background:var(--blue-deep);border-radius:var(--radius);
+  padding:28px;display:flex;align-items:center;gap:32px;flex-wrap:wrap;margin-top:8px;
+}
+.color-item{display:flex;flex-direction:column;align-items:center;gap:10px;}
+.color-swatch{width:56px;height:56px;border-radius:12px;border:2px solid rgba(255,255,255,0.15);}
+.color-name{font-size:12px;color:rgba(255,255,255,0.6);font-weight:600;}
+
+/* ===== FOOTER ===== */
+footer{
+  background:var(--blue-deep);
+  padding:40px 32px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;
+  border-top:1px solid rgba(255,255,255,0.07);
+}
+.footer-brand{display:flex;align-items:center;gap:14px;}
+.footer-name{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;color:#fff;}
+.footer-sub{font-size:11px;color:rgba(255,255,255,0.35);margin-top:2px;}
+.footer-links{display:flex;gap:24px;}
+.footer-link{color:rgba(255,255,255,0.45);font-size:12px;font-weight:600;text-decoration:none;transition:color 0.15s;display:flex;align-items:center;gap:6px;}
+.footer-link i{font-size:15px;}
+.footer-link:hover{color:var(--gold);}
+.footer-copy{color:rgba(255,255,255,0.2);font-size:11px;}
+
+/* ===== LIVE DOT ===== */
+.live-dot{width:8px;height:8px;border-radius:50%;background:#E24B4A;display:inline-block;margin-right:4px;animation:pulse 1.4s infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.5;transform:scale(0.85);}}
+
+/* ===== AMBIENT BACKGROUND (Şahdağ dağ silueti) ===== */
+body{
+  position:relative;
+  background-color:var(--page);
+  background-image:
+    radial-gradient(ellipse 900px 500px at 12% 0%, rgba(10,79,191,0.07), transparent 60%),
+    radial-gradient(ellipse 700px 500px at 100% 30%, rgba(232,184,0,0.06), transparent 55%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 420' preserveAspectRatio='none'%3E%3Cpath d='M0 420 L0 260 L110 150 L190 230 L300 90 L420 240 L520 130 L640 260 L760 60 L900 250 L1010 140 L1120 240 L1240 110 L1360 250 L1460 170 L1600 260 L1600 420 Z' fill='%23E8F0FF' opacity='0.55'/%3E%3Cpath d='M0 420 L0 320 L150 230 L260 310 L380 190 L500 320 L640 230 L780 330 L900 200 L1040 320 L1180 240 L1320 330 L1460 250 L1600 330 L1600 420 Z' fill='%23DCE9FF' opacity='0.7'/%3E%3C/svg%3E");
+  background-repeat:no-repeat,no-repeat,repeat-x;
+  background-position:top left,top right,bottom center;
+  background-size:auto,auto,1600px 420px;
+  background-attachment:fixed,fixed,fixed;
+}
+@media (max-width:760px){
+  body{background-attachment:scroll,scroll,scroll;}
+}
+.section,.hero,.about-hero,footer,.next-match-bar{position:relative;z-index:1;}
+
+/* ===== EAGLE WATERMARK ===== */
+.eagle-watermark{
+  position:absolute;right:-40px;bottom:-30px;width:240px;height:240px;
+  opacity:0.05;pointer-events:none;z-index:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23041E52' d='M50 8c2 6 1 11-2 15 14 2 26 11 33 24-9-6-18-9-27-9 6 5 10 12 11 20-7-9-15-15-24-17 3 8 2 17-3 24-1-9-5-16-11-21-1 9-6 16-14 20 4-8 5-16 3-23-9 3-16 10-20 19 0-10 4-19 11-26-9 1-17 5-23 12 5-13 16-23 30-27-4-4-6-9-6-15 4 5 9 8 15 9-1-6 0-12 3-17-1 7 1 13 5 17 4-6 8-12 19-5z'/%3E%3C/svg%3E");
+  background-size:contain;background-repeat:no-repeat;
+}
+
+/* ===== SCROLL REVEAL ANIMATIONS ===== */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity 0.6s cubic-bezier(.2,.7,.2,1),transform 0.6s cubic-bezier(.2,.7,.2,1);}
+.reveal.in{opacity:1;transform:translateY(0);}
+.reveal-stagger .reveal:nth-child(1){transition-delay:0.02s;}
+.reveal-stagger .reveal:nth-child(2){transition-delay:0.08s;}
+.reveal-stagger .reveal:nth-child(3){transition-delay:0.14s;}
+.reveal-stagger .reveal:nth-child(4){transition-delay:0.2s;}
+.reveal-stagger .reveal:nth-child(5){transition-delay:0.26s;}
+.reveal-stagger .reveal:nth-child(6){transition-delay:0.32s;}
+
+@keyframes heroIn{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+.hero-badge{animation:heroIn 0.7s cubic-bezier(.2,.7,.2,1) both;}
+.hero h1{animation:heroIn 0.8s 0.05s cubic-bezier(.2,.7,.2,1) both;}
+.hero-desc{animation:heroIn 0.8s 0.12s cubic-bezier(.2,.7,.2,1) both;}
+.hero-stats{animation:heroIn 0.8s 0.18s cubic-bezier(.2,.7,.2,1) both;}
+.hero-crest{animation:heroIn 0.9s cubic-bezier(.2,.7,.2,1) both, crestSpin 14s linear infinite;}
+@keyframes crestSpin{0%,92%{filter:drop-shadow(0 8px 24px rgba(0,0,0,0.35)) brightness(1);}96%{filter:drop-shadow(0 8px 24px rgba(232,184,0,0.5)) brightness(1.15);}100%{filter:drop-shadow(0 8px 24px rgba(0,0,0,0.35)) brightness(1);}}
+
+@keyframes drift{0%{background-position:0% 50%;}100%{background-position:200% 50%;}}
+.hero{background-size:200% 200%;animation:drift 18s ease-in-out infinite alternate;}
+
+.news-card,.about-card,.player-card,.result-row,.fixture-row{will-change:transform;}
+.news-card:hover{transform:translateY(-6px) scale(1.012);}
+.player-card:hover{transform:translateY(-5px) scale(1.015);}
+.filter-btn,.tab,.nav-btn,.footer-link{transition:all 0.2s cubic-bezier(.2,.7,.2,1);}
+.nav-btn::after{content:'';position:absolute;left:14px;right:14px;bottom:4px;height:2px;background:var(--gold);transform:scaleX(0);transition:transform 0.2s;border-radius:2px;}
+.nav-btn{position:relative;}
+.nav-btn:hover::after{transform:scaleX(1);}
+.nav-btn.active::after{display:none;}
+
+.standings-table tr{transition:background 0.15s;}
+.pos-badge{transition:transform 0.2s;}
+tr:hover .pos-badge{transform:scale(1.12);}
+
+/* ===== MOBILE NAV ===== */
+.nav-toggle{
+  display:none;flex-direction:column;justify-content:center;gap:5px;
+  width:38px;height:38px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);
+  border-radius:8px;cursor:pointer;padding:0;flex-shrink:0;
+}
+.nav-toggle span{width:18px;height:2px;background:#fff;margin:0 auto;border-radius:2px;transition:all 0.25s;}
+.nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.nav-toggle.open span:nth-child(2){opacity:0;}
+.nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(4,30,82,0.45);z-index:998;}
+.nav-overlay.show{display:block;}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:900px){
+  .hero h1{font-size:54px;}
+  .news-grid{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}
+}
+@media (max-width:768px){
+  nav{padding:0 16px;}
+  .nav-sub{display:none;}
+  .nav-title{font-size:15px;}
+  .nav-toggle{display:flex;}
+  .nav-links{
+    position:fixed;top:68px;right:0;left:0;background:var(--blue-deep);
+    flex-direction:column;align-items:stretch;gap:2px;padding:10px 16px 18px;
+    max-height:0;overflow:hidden;transition:max-height 0.3s ease;z-index:999;
+    box-shadow:0 12px 24px rgba(0,0,0,0.25);
+  }
+  .nav-links.open{max-height:70vh;overflow-y:auto;}
+  .nav-btn{justify-content:flex-start;padding:13px 14px;border-radius:10px;}
+  .nav-btn::after{display:none;}
+
+  .hero{padding:52px 18px 44px;}
+  .hero h1{font-size:38px;line-height:1.02;}
+  .hero-desc{font-size:13px;}
+  .hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;width:100%;border-radius:14px;}
+  .hero-stat{padding:14px 10px;border-right:1px solid rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.08);}
+  .hero-stat-num{font-size:24px;}
+  .hero-crest{width:72px;height:72px;}
+
+  .next-match-bar{padding:12px 16px;flex-direction:column;gap:8px;text-align:center;}
+  .section{padding:32px 16px;}
+  .section-heading{font-size:26px;}
+  .about-hero h2,.about-hero h2{font-size:32px!important;}
+  .about-hero{padding:40px 18px;}
+
+  .news-grid{grid-template-columns:1fr 1fr;gap:10px;}
+  .news-img{height:90px;}
+  .news-title{font-size:12.5px;}
+
+  .players-grid{grid-template-columns:repeat(3,1fr);gap:8px;}
+  .player-card{padding:14px 6px 10px;}
+  .player-avatar-wrap{width:56px;height:56px;}
+  .player-photo,.player-initials{width:56px;height:56px;font-size:18px;}
+  .player-name{font-size:11px;}
+  .player-role{font-size:9.5px;}
+
+  .pos-filter{overflow-x:auto;flex-wrap:nowrap;padding-bottom:6px;-webkit-overflow-scrolling:touch;}
+  .filter-btn{flex-shrink:0;}
+
+  .result-row,.fixture-row{flex-wrap:wrap;padding:12px 14px;}
+  .result-teams,.fixture-teams{font-size:13px;}
+
+  .standings-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .standings-table{min-width:520px;}
+
+  .about-grid{grid-template-columns:1fr;}
+  .timeline{padding-left:20px;}
+
+  footer{flex-direction:column;text-align:center;padding:32px 18px;}
+  .footer-links{justify-content:center;flex-wrap:wrap;gap:14px;}
+  .colors-showcase{gap:18px;padding:20px;}
+  .eagle-watermark{display:none;}
+}
+@media (max-width:420px){
+  .hero h1{font-size:32px;}
+  .players-grid{grid-template-columns:repeat(2,1fr);}
+  .news-grid{grid-template-columns:1fr;}
+  .hero-stats{grid-template-columns:1fr 1fr;}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;}
+}
+
+/* ===== ADMIN PANEL ===== */
+#admin-overlay{
+  position:fixed;inset:0;z-index:9999;background:rgba(4,18,50,0.92);
+  display:none;align-items:flex-start;justify-content:center;
+  overflow-y:auto;padding:20px;
+}
+#admin-overlay.open{display:flex;}
+.admin-panel{
+  background:#fff;border-radius:18px;width:100%;max-width:860px;
+  box-shadow:0 24px 80px rgba(0,0,0,0.45);overflow:hidden;margin:auto;
+}
+.admin-header{
+  background:linear-gradient(135deg,var(--blue-deep),var(--blue));
+  padding:20px 28px;display:flex;align-items:center;justify-content:space-between;
+}
+.admin-header h2{color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:800;display:flex;align-items:center;gap:10px;}
+.admin-header h2 i{font-size:22px;color:var(--gold);}
+.admin-close{background:rgba(255,255,255,0.15);border:none;color:#fff;width:36px;height:36px;border-radius:10px;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;transition:all 0.15s;}
+.admin-close:hover{background:rgba(255,255,255,0.28);}
+.admin-tabs{display:flex;border-bottom:2px solid #eef4ff;padding:0 28px;background:#f9fbff;}
+.admin-tab{background:none;border:none;padding:14px 18px;font-size:13px;font-weight:700;color:#6B7F96;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;display:flex;align-items:center;gap:7px;transition:all 0.15s;}
+.admin-tab i{font-size:16px;}
+.admin-tab.active{color:var(--blue);border-bottom-color:var(--blue);}
+.admin-body{padding:24px 28px;}
+.admin-section{display:none;}
+.admin-section.active{display:block;}
+.admin-form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+.admin-form-row.full{grid-template-columns:1fr;}
+.admin-label{font-size:11px;font-weight:700;color:#3D4F63;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:5px;display:block;}
+.admin-input{width:100%;border:1.5px solid #d8e4f8;border-radius:9px;padding:10px 14px;font-size:13px;color:#0D1929;outline:none;transition:border 0.15s;background:#fff;}
+.admin-input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(10,79,191,0.09);}
+.admin-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24'%3E%3Cpath fill='%236B7F96' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;}
+.admin-btn{display:inline-flex;align-items:center;gap:7px;padding:10px 20px;border-radius:9px;font-size:13px;font-weight:700;cursor:pointer;border:none;transition:all 0.15s;}
+.admin-btn-primary{background:var(--blue);color:#fff;}
+.admin-btn-primary:hover{background:var(--blue-dark);}
+.admin-btn-danger{background:#fdeaea;color:#a32d2d;}
+.admin-btn-danger:hover{background:#f8c5c5;}
+.admin-btn-gold{background:var(--gold);color:#3D2B00;}
+.admin-btn-gold:hover{background:#d4a800;}
+.admin-list{display:flex;flex-direction:column;gap:8px;margin-bottom:20px;max-height:320px;overflow-y:auto;}
+.admin-list-item{
+  background:#f9fbff;border:1.5px solid #eef4ff;border-radius:10px;
+  padding:12px 16px;display:flex;align-items:center;gap:12px;
+}
+.admin-list-item-info{flex:1;}
+.admin-list-item-title{font-size:13px;font-weight:700;color:#0D1929;}
+.admin-list-item-sub{font-size:11px;color:#6B7F96;margin-top:2px;}
+.admin-badge{font-size:10px;font-weight:700;padding:3px 9px;border-radius:6px;letter-spacing:0.5px;}
+.admin-badge-blue{background:#EEF4FF;color:var(--blue);}
+.admin-badge-gold{background:#fff8d6;color:#7a5c00;}
+.admin-badge-green{background:#EDFAF3;color:#0E6B35;}
+.admin-badge-red{background:#fdeaea;color:#a32d2d;}
+.admin-divider{border:none;border-top:1.5px solid #eef4ff;margin:20px 0;}
+.admin-login{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px;gap:16px;}
+.admin-login-icon{font-size:48px;color:var(--blue);}
+.admin-login h3{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:800;color:#0D1929;}
+.admin-login-desc{font-size:13px;color:#6B7F96;text-align:center;max-width:300px;}
+.admin-login-form{width:100%;max-width:320px;display:flex;flex-direction:column;gap:12px;}
+.admin-toast{
+  position:fixed;bottom:24px;right:24px;z-index:99999;
+  background:#0D1929;color:#fff;padding:14px 20px;border-radius:12px;
+  font-size:13px;font-weight:600;display:flex;align-items:center;gap:10px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.25);transform:translateY(80px);opacity:0;
+  transition:all 0.3s;pointer-events:none;
+}
+.admin-toast.show{transform:translateY(0);opacity:1;}
+.admin-toast i{font-size:18px;color:var(--gold);}
+@media(max-width:600px){
+  .admin-form-row{grid-template-columns:1fr;}
+  .admin-body{padding:18px 16px;}
+  .admin-header{padding:16px 18px;}
+  .admin-tabs{padding:0 16px;overflow-x:auto;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand" onclick="showPage('home',null)">
+    <div class="nav-crest"><img src="https://img.sofascore.com/api/v1/team/490455/image" alt="Şahdağ Qusar FK" onerror="this.style.display='none';this.parentElement.textContent='ŞQ';">
+    </div>
+    <div>
+      <div class="nav-title">Şahdağ Qusar FK</div>
+      <div class="nav-sub">Qusar · 1950 · Mavi & Ağ</div>
+    </div>
+  </div>
+  <div class="nav-links" id="nav-links">
+    <button class="nav-btn active" id="nb-home" onclick="showPage('home',this);closeMenu();"><i class="ti ti-home-2"></i> Ana Səhifə</button>
+    <button class="nav-btn" id="nb-squad" onclick="showPage('squad',this);closeMenu();"><i class="ti ti-shirt"></i> Heyət</button>
+    <button class="nav-btn" id="nb-results" onclick="showPage('results',this);closeMenu();"><i class="ti ti-ball-football"></i> Nəticələr</button>
+    <button class="nav-btn" id="nb-standings" onclick="showPage('standings',this);closeMenu();"><i class="ti ti-trophy"></i> Cədvəl</button>
+    <button class="nav-btn" id="nb-about" onclick="showPage('about',this);closeMenu();"><i class="ti ti-info-circle"></i> Klub</button>
+  </div>
+  <button class="nav-toggle" id="nav-toggle" onclick="toggleMenu()" aria-label="Menyu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
+
+<!-- ===== HOME ===== -->
+<div id="page-home" class="page active">
+  <div class="hero">
+    <div class="hero-pattern"></div>
+    <div class="hero-glow"></div>
+    <div class="eagle-watermark"></div>
+    <img class="hero-crest" src="https://img.sofascore.com/api/v1/team/490455/image" alt="Şahdağ Qusar FK emblemi" onerror="this.style.display='none';">
+    <div class="hero-badge"><i class="ti ti-mountain"></i> Şimalın qüruru · Qartallar</div>
+    <h1>ŞAHDAQ <span class="gold">QUSAR</span><br>FK</h1>
+    <p class="hero-desc">Azərbaycan Birinci Liqası &nbsp;·&nbsp; 1950-ci ildən bu günə</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-num">1950</div><div class="hero-stat-label">Quruluş ili</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">5-ci</div><div class="hero-stat-label">2025/26 yeri</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">43</div><div class="hero-stat-label">Xal (27 oyun)</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">🦅</div><div class="hero-stat-label">Ləqəb: Qartal</div></div>
+    </div>
+  </div>
+
+  <div class="next-match-bar">
+    <div class="nm-label"><i class="ti ti-transfer"></i> Transfer xəbəri</div>
+    <div class="nm-teams"><strong>Mehrac Baxşalı</strong> <span class="nm-sep">→</span> <strong>Şahdağ Qusar</strong></div>
+    <div class="nm-info"><i class="ti ti-arrows-exchange" style="font-size:13px;"></i> Qəbələdən icarə əsasında transfer (İyun 2026)</div>
+    <div class="nm-info"><i class="ti ti-calendar-event" style="font-size:13px;"></i> Yeni mövsüm: sentyabr 2026</div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow"><i class="ti ti-news" style="font-size:15px;"></i> Xəbərlər</div>
+    <div class="section-heading">Son Xəbərlər</div>
+    <div class="news-grid reveal-stagger">
+      <div class="news-card reveal">
+        <div class="news-img news-img-blue">
+          <span class="news-cat">Transfer</span>
+          <i class="ti ti-arrows-exchange" style="font-size:48px;color:#378ADD;opacity:0.7;"></i>
+        </div>
+        <div class="news-body">
+          <div class="news-title">Mehrac Baxşalı Qəbələdən icarə əsasında komandaya qoşuldu</div>
+          <div class="news-meta"><i class="ti ti-calendar"></i> İyun 2026 &nbsp;·&nbsp; <i class="ti ti-user"></i> Klub mətbuat xidməti</div>
+        </div>
+      </div>
+      <div class="news-card reveal">
+        <div class="news-img news-img-gold">
+          <span class="news-cat">Məşqçi heyəti</span>
+          <i class="ti ti-clipboard-list" style="font-size:48px;color:#BA7517;opacity:0.7;"></i>
+        </div>
+        <div class="news-body">
+          <div class="news-title">Baş məşqçi Elnur Abdullayev klubla yollarını ayırdı</div>
+          <div class="news-meta"><i class="ti ti-calendar"></i> May 2026 &nbsp;·&nbsp; <i class="ti ti-user"></i> Klub mətbuat xidməti</div>
+        </div>
+      </div>
+      <div class="news-card reveal">
+        <div class="news-img news-img-green">
+          <span class="news-cat">Mövsüm yekunu</span>
+          <i class="ti ti-trophy" style="font-size:48px;color:#3B6D11;opacity:0.7;"></i>
+        </div>
+        <div class="news-body">
+          <div class="news-title">Şahdağ Qusar 2025/26 mövsümünü 43 xalla 5-ci yerdə tamamladı</div>
+          <div class="news-meta"><i class="ti ti-calendar"></i> 22 May 2026 &nbsp;·&nbsp; <i class="ti ti-user"></i> Redaksiya</div>
+        </div>
+      </div>
+      <div class="news-card reveal">
+        <div class="news-img news-img-blue">
+          <span class="news-cat">Klub tarixi</span>
+          <i class="ti ti-feather" style="font-size:48px;color:#185FA5;opacity:0.7;"></i>
+        </div>
+        <div class="news-body">
+          <div class="news-title">2023-cü ildən sonra peşəkar klub kimi yenidən doğuluş</div>
+          <div class="news-meta"><i class="ti ti-calendar"></i> Tarixi arxiv &nbsp;·&nbsp; <i class="ti ti-user"></i> Redaksiya</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:var(--blue-deep);padding:40px 32px;">
+    <div style="max-width:600px;margin:0 auto;text-align:center;">
+      <div class="section-eyebrow" style="justify-content:center;color:var(--gold);margin-bottom:12px;">
+        <i class="ti ti-palette" style="font-size:14px;"></i> Rəsmi Rənglər
+      </div>
+      <div class="colors-showcase" style="justify-content:center;">
+        <div class="color-item"><div class="color-swatch" style="background:#0A4FBF;"></div><div class="color-name">Mavi</div></div>
+        <div class="color-item"><div class="color-swatch" style="background:#FFFFFF;"></div><div class="color-name">Ağ</div></div>
+        <div class="color-item"><div class="color-swatch" style="background:#E8B800;"></div><div class="color-name">Qızılı</div></div>
+        <div class="color-item"><div class="color-swatch" style="background:#041E52;"></div><div class="color-name">Tünd Mavi</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SQUAD ===== -->
+<div id="page-squad" class="page">
+  <div class="about-hero">
+    <p style="color:rgba(255,255,255,0.4);font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">2025 / 2026 Mövsümü</p>
+    <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:46px;font-weight:900;color:#fff;margin-bottom:8px;">Oyunçu Heyəti</h2>
+    <p style="color:rgba(255,255,255,0.45);font-size:13px;">Oyunçuya klik edərək ətraflı statistikasına bax · İyun 2026: Mehrac Baxşalı (Qəbələ) icarə əsasında qoşuldu</p>
+  </div>
+  <div class="section">
+    <div class="pos-filter">
+      <button class="filter-btn active" onclick="filterPlayers('all',this)"><i class="ti ti-users"></i> Hamısı</button>
+      <button class="filter-btn" onclick="filterPlayers('GK',this)"><i class="ti ti-hand-stop"></i> Qapıçılar</button>
+      <button class="filter-btn" onclick="filterPlayers('DF',this)"><i class="ti ti-shield"></i> Müdafiəçilər</button>
+      <button class="filter-btn" onclick="filterPlayers('MF',this)"><i class="ti ti-activity"></i> Yarımmüdafiəçilər</button>
+      <button class="filter-btn" onclick="filterPlayers('FW',this)"><i class="ti ti-bolt"></i> Hücumçular</button>
+    </div>
+    <div id="player-detail" class="player-detail">
+      <div id="pd-photo-wrap"></div>
+      <div class="pd-info">
+        <h3 id="pd-name"></h3>
+        <div class="pd-meta" id="pd-meta"></div>
+        <div class="pd-stats" id="pd-stats"></div>
+      </div>
+      <button class="pd-close" onclick="closeDetail()"><i class="ti ti-x"></i></button>
+    </div>
+    <div class="players-grid" id="players-grid"></div>
+  </div>
+</div>
+
+<!-- ===== RESULTS ===== -->
+<div id="page-results" class="page">
+  <div class="about-hero">
+    <p style="color:rgba(255,255,255,0.4);font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">Birinci Liqa · 2025/26</p>
+    <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:46px;font-weight:900;color:#fff;">Nəticələr &amp; Oyunlar</h2>
+  </div>
+  <div class="section">
+    <div class="tabs">
+      <button class="tab active" onclick="switchTab('rt',this)"><i class="ti ti-list-check"></i> Son nəticələr</button>
+      <button class="tab" onclick="switchTab('ft',this)"><i class="ti ti-calendar-due"></i> Mövsüm sonu / Transfer</button>
+    </div>
+    <div id="rt" class="tab-panel active">
+      <div style="display:flex;align-items:center;justify-content:flex-end;gap:8px;margin-bottom:12px;font-size:11px;color:var(--text-3);font-weight:600;">
+        <span id="results-status"><span class="live-dot"></span>Sofascore-dan yüklənir…</span>
+      </div>
+      <div class="results-list" id="results-list"></div>
+    </div>
+    <div id="ft" class="tab-panel">
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:16px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <i class="ti ti-info-circle" style="font-size:20px;color:var(--blue);"></i>
+          <strong style="font-size:14px;color:var(--text);">2025/26 mövsümü 22 May 2026-da başa çatdı</strong>
+        </div>
+        <p style="font-size:13px;color:var(--text-2);line-height:1.7;">Şahdağ Qusar Birinci Liqanın 27 turunu 43 xalla (12 qələbə, 7 heç-heçə, 8 məğlubiyyət) 5-ci yerdə tamamladı. Yeni mövsümün təqvimi AFFA/PFL tərəfindən sentyabr ayında elan olunacaq — açıqlandıqdan sonra bu bölmə yenilənəcək.</p>
+      </div>
+      <div class="fixtures-list" id="fixtures-list"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== STANDINGS ===== -->
+<div id="page-standings" class="page">
+  <div class="about-hero">
+    <p style="color:rgba(255,255,255,0.4);font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">Azərbaycan</p>
+    <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:46px;font-weight:900;color:#fff;">Birinci Liqa Cədvəli</h2>
+    <p style="color:rgba(255,255,255,0.4);font-size:13px;margin-top:6px;">2025/26 mövsümü (yekun) · <span style="color:var(--gold);">Şahdağ Qusar vurğulanmış</span></p>
+  </div>
+  <div class="section">
+    <div style="display:flex;align-items:center;justify-content:flex-end;gap:8px;margin-bottom:14px;font-size:11px;color:var(--text-3);font-weight:600;">
+      <span id="live-status"><span class="live-dot"></span>Sofascore-dan canlı yenilənmə yoxlanılır…</span>
+    </div>
+    <div class="standings-wrap">
+      <table class="standings-table">
+        <thead>
+          <tr>
+            <th style="width:36px;">#</th>
+            <th>Komanda</th>
+            <th>O</th>
+            <th>Fərq</th>
+            <th><i class="ti ti-trophy" style="font-size:13px;vertical-align:-2px;"></i> Xal</th>
+          </tr>
+        </thead>
+        <tbody id="standings-body"></tbody>
+      </table>
+    </div>
+    <p style="font-size:11px;color:var(--text-3);margin-top:14px;display:flex;align-items:center;gap:6px;">
+      <i class="ti ti-info-circle" style="font-size:14px;"></i>
+       <a href="https://pfl.az" target="_blank" style="color:var(--blue);font-weight:600;">pfl.az</a> və ya <a href="https://www.sofascore.com/football/tournament/azerbaijan/birinci-liqa/736" target="_blank" style="color:var(--blue);font-weight:600;">Sofascore</a> səhifəsini yoxlayın.
+    </p>
+  </div>
+</div>
+
+<!-- ===== ABOUT ===== -->
+<div id="page-about" class="page">
+  <div class="about-hero">
+    <p style="color:rgba(255,255,255,0.4);font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">1950 — bu gün</p>
+    <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:46px;font-weight:900;color:#fff;margin-bottom:8px;">Klub haqqında</h2>
+    <p style="color:rgba(255,255,255,0.45);font-size:14px;">Qusar rayonunun futbol tarixi</p>
+  </div>
+  <div class="section">
+    <div class="section-eyebrow"><i class="ti ti-building-stadium" style="font-size:15px;"></i> Ümumi məlumat</div>
+    <div class="section-heading">Klubu tanı</div>
+    <div class="about-grid reveal-stagger">
+      <div class="about-card reveal">
+        <div class="about-icon"><i class="ti ti-building-stadium"></i></div>
+        <h3>Stadion</h3>
+        <p>Şövkət Orduxanov adına stadion hazırda təmirdədir. Ev oyunları Şamaxı Olimpiya İdman Kompleksinin futbol stadionunda keçirilir.</p>
+      </div>
+      <div class="about-card reveal">
+        <div class="about-icon"><i class="ti ti-map-pin"></i></div>
+        <h3>Ünvan</h3>
+        <p>Heydər Əliyev küçəsi 135, Qusar şəhəri, Azərbaycan Respublikası · Şimali-Şərqi Azərbaycan bölgəsi</p>
+      </div>
+      <div class="about-card reveal">
+        <div class="about-icon"><i class="ti ti-feather"></i></div>
+        <h3>Ləqəb</h3>
+        <p>Loqoda Şahdağ silsiləsindəki qızılı rəngli dağ və onun üstündəki qartal təsvir edilib. Bu görüntü klubun "Qartallar" ləqəbini formalaşdırdı.</p>
+      </div>
+      <div class="about-card reveal">
+        <div class="about-icon"><i class="ti ti-trophy"></i></div>
+        <h3>Uğurlar</h3>
+        <p>Azərbaycan Yüksək Liqasında çıxış (1992–2007), Azərbaycan Kuboku iştirakçısı (2023/24), Birinci Liqa mövcud iştirakçısı.</p>
+      </div>
+    </div>
+
+    <div class="section-eyebrow" style="margin-top:16px;"><i class="ti ti-clock-history" style="font-size:15px;"></i> Tarix</div>
+    <div class="section-heading">Klub salnaməsi</div>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">1950</div><div class="tl-text">Qusar şəhərində futbol klubu yaradıldı. SSRİ dönəmində aşağı dəstələrdə çıxış etdi. İlk illərdə "Neftqaz" adı ilə tanındı.</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">1990–91</div><div class="tl-text">Sovet İkinci Liqasında çıxış etdi — beynəlxalq səviyyəli yarışlardakı ilk addımlar.</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">1992</div><div class="tl-text">Müstəqil Azərbaycan çempionatının ilk mövsümündə 26 komanda arasında yer aldı — tarixi ilk.</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">1998–2007</div><div class="tl-text">Azərbaycan Yüksək Liqasında ardıcıl çıxışlar. "Şahdağ" adı ölkə futbolunda tanındı. 2010-cu il reytinqinə görə Azərbaycan klubları arasında 12-ci pillə.</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2003</div><div class="tl-text">Klub "Şahdağ-Samur" adını aldı. Yeni loqo yaradıldı: dağ, qartal, mavi rəng.</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2013</div><div class="tl-text">Azərbaycanlı qrafik dizayner Toğrul Babayevin hazırladığı müasir rəsmi emblem təqdim edildi.</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2020</div><div class="tl-text">Maliyyə çətinlikləri yarandı, fəaliyyətin dayandırılması müzakirə edildi. Klub rəsmilər inkar etdi, uşaq akademiyası davam etdi.</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2023</div><div class="tl-text">AFFA İcraiyyə Komitəsinin qərarı ilə peşəkar klub kimi yenidən fəaliyyət bərpa edildi. "Qusar 1950" loqosu ilə yeni dövrə başlandı.</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2024–26</div><div class="tl-text">Azərbaycan Birinci Liqasında güclü çıxış. Azərbaycan Kuboku (2023/24) iştirakı. Sanan Ağalarov başda olmaqla güclü heyətlə iddialı mövsüm.</div></div>
+    </div>
+
+    <div style="margin-top:40px;">
+      <div class="section-eyebrow"><i class="ti ti-mail" style="font-size:15px;"></i> Əlaqə</div>
+      <div class="section-heading">Bizimlə əlaqə</div>
+      <div class="about-grid reveal-stagger">
+        <div class="about-card reveal">
+          <div class="about-icon"><i class="ti ti-mail"></i></div>
+          <h3>E-poçt</h3>
+          <p>info@shahdagqusar.az</p>
+        </div>
+        <div class="about-card reveal">
+          <div class="about-icon"><i class="ti ti-map-pin"></i></div>
+          <h3>Ünvan</h3>
+          <p>H. Əliyev küç. 135, Qusar, Azərbaycan</p>
+        </div>
+        <div class="about-card reveal">
+          <div class="about-icon"><i class="ti ti-brand-instagram"></i></div>
+          <h3>Instagram</h3>
+          <p>@shahdagqusarfk</p>
+        </div>
+        <div class="about-card reveal">
+          <div class="about-icon"><i class="ti ti-phone"></i></div>
+          <h3>Telefon</h3>
+          <p>+994 XX XXX XX XX</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-brand">
+    <div class="nav-crest" style="width:38px;height:38px;font-size:16px;"><img src="https://img.sofascore.com/api/v1/team/490455/image" alt="Şahdağ Qusar FK" onerror="this.style.display='none';this.parentElement.textContent='ŞQ';"></div>
+    <div>
+      <div class="footer-name">Şahdağ Qusar FK</div>
+      <div class="footer-sub">© 2026 · Bütün hüquqlar qorunur</div>
+    </div>
+  </div>
+  <div class="footer-links">
+    <a href="https://www.instagram.com/shahdagqusarfk/" target="_blank" class="footer-link"><i class="ti ti-brand-instagram"></i> Instagram</a>
+    <a href="https://www.facebook.com/p/FK-%C5%9Eahda%C4%9F-Qusar-100063470206219/" target="_blank" class="footer-link"><i class="ti ti-brand-facebook"></i> Facebook</a>
+    
+  </div>
+  <div class="footer-copy">Qusar · Azərbaycan · 1950</div>
+</footer>
+
+<!-- ===== ADMIN PANEL OVERLAY ===== -->
+<div id="admin-overlay">
+  <div class="admin-panel">
+    <div class="admin-header">
+      <h2><i class="ti ti-shield-lock"></i> Admin Panel</h2>
+      <button class="admin-close" onclick="closeAdmin()"><i class="ti ti-x"></i></button>
+    </div>
+    <!-- LOGIN VIEW -->
+    <div id="admin-login-view">
+      <div class="admin-login">
+        <i class="ti ti-lock admin-login-icon"></i>
+        <h3>Admin Girişi</h3>
+        <p class="admin-login-desc">Şahdağ Qusar FK inzibati panelinə daxil olmaq üçün şifrəni daxil edin</p>
+        <div class="admin-login-form">
+          <div>
+            <label class="admin-label">Şifrə</label>
+            <input type="password" id="admin-pw-input" class="admin-input" placeholder="••••••••" onkeydown="if(event.key==='Enter')checkAdminPw()">
+          </div>
+          <button class="admin-btn admin-btn-primary" onclick="checkAdminPw()" style="width:100%;justify-content:center;"><i class="ti ti-login"></i> Daxil ol</button>
+          <p id="admin-pw-error" style="color:#a32d2d;font-size:12px;font-weight:600;text-align:center;display:none;"><i class="ti ti-alert-circle"></i> Şifrə yanlışdır</p>
+        </div>
+      </div>
+    </div>
+    <!-- MAIN ADMIN VIEW -->
+    <div id="admin-main-view" style="display:none;">
+      <div class="admin-tabs">
+        <button class="admin-tab active" onclick="switchAdminTab('news',this)"><i class="ti ti-news"></i> Xəbərlər</button>
+        <button class="admin-tab" onclick="switchAdminTab('bar',this)"><i class="ti ti-antenna"></i> Xəbər Barı</button>
+        <button class="admin-tab" onclick="switchAdminTab('players',this)"><i class="ti ti-shirt"></i> Oyunçular</button>
+        <button class="admin-tab" onclick="switchAdminTab('results',this)"><i class="ti ti-ball-football"></i> Nəticələr</button>
+        <button class="admin-tab" onclick="switchAdminTab('settings',this)"><i class="ti ti-settings"></i> Parametrlər</button>
+      </div>
+      <div class="admin-body">
+
+        <!-- NEWS TAB -->
+        <div class="admin-section active" id="atab-news">
+          <h3 style="font-size:16px;font-weight:800;color:#0D1929;margin-bottom:16px;display:flex;align-items:center;gap:8px;"><i class="ti ti-plus" style="color:var(--blue);"></i> Yeni Xəbər Əlavə Et</h3>
+          <div class="admin-form-row">
+            <div><label class="admin-label">Başlıq</label><input type="text" id="n-title" class="admin-input" placeholder="Xəbər başlığı..."></div>
+            <div><label class="admin-label">Kateqoriya</label>
+              <select id="n-cat" class="admin-input admin-select">
+                <option>Transfer</option><option>Mövsüm yekunu</option><option>Məşqçi heyəti</option>
+                <option>Klub tarixi</option><option>Oyun xülasəsi</option><option>Elan</option>
+              </select>
+            </div>
+          </div>
+          <div class="admin-form-row">
+            <div><label class="admin-label">Tarix</label><input type="text" id="n-date" class="admin-input" placeholder="İyun 2026"></div>
+            <div><label class="admin-label">Müəllif</label><input type="text" id="n-author" class="admin-input" placeholder="Klub mətbuat xidməti" value="Klub mətbuat xidməti"></div>
+          </div>
+          <div class="admin-form-row">
+            <div><label class="admin-label">Fon rəngi</label>
+              <select id="n-color" class="admin-input admin-select">
+                <option value="blue">Mavi</option><option value="gold">Qızılı</option><option value="green">Yaşıl</option>
+              </select>
+            </div>
+            <div><label class="admin-label">İkon (tabler)</label><input type="text" id="n-icon" class="admin-input" placeholder="ti-news"></div>
+          </div>
+          <button class="admin-btn admin-btn-primary" onclick="addNews()"><i class="ti ti-plus"></i> Xəbər Əlavə Et</button>
+          <hr class="admin-divider">
+          <h3 style="font-size:14px;font-weight:800;color:#0D1929;margin-bottom:12px;">Mövcud Xəbərlər</h3>
+          <div class="admin-list" id="admin-news-list"></div>
+        </div>
+
+        <!-- BAR TAB -->
+        <div class="admin-section" id="atab-bar">
+          <h3 style="font-size:16px;font-weight:800;color:#0D1929;margin-bottom:16px;display:flex;align-items:center;gap:8px;"><i class="ti ti-antenna" style="color:var(--gold);"></i> Sarı Xəbər Barını Düzənlə</h3>
+          <p style="font-size:12px;color:#6B7F96;margin-bottom:16px;">Saytın yuxarısındakı sarı xəbər barında göstərilən məlumatları buradan dəyişin.</p>
+          <div class="admin-form-row full"><div><label class="admin-label">Etiket (sol kiçik yazı)</label><input type="text" id="bar-label" class="admin-input" placeholder="Transfer xəbəri"></div></div>
+          <div class="admin-form-row full"><div><label class="admin-label">Əsas mətn (komanda adları)</label><input type="text" id="bar-teams" class="admin-input" placeholder="Oyunçu adı → Şahdağ Qusar"></div></div>
+          <div class="admin-form-row"><div><label class="admin-label">Sol info</label><input type="text" id="bar-info1" class="admin-input" placeholder="Qəbələdən icarə əsasında transfer"></div>
+          <div><label class="admin-label">Sağ info</label><input type="text" id="bar-info2" class="admin-input" placeholder="Yeni mövsüm: sentyabr 2026"></div></div>
+          <button class="admin-btn admin-btn-gold" onclick="saveBar()"><i class="ti ti-check"></i> Barı Yenilə</button>
+        </div>
+
+        <!-- PLAYERS TAB -->
+        <div class="admin-section" id="atab-players">
+          <h3 style="font-size:16px;font-weight:800;color:#0D1929;margin-bottom:16px;display:flex;align-items:center;gap:8px;"><i class="ti ti-user-plus" style="color:var(--blue);"></i> Yeni Oyunçu Əlavə Et</h3>
+          <div class="admin-form-row">
+            <div><label class="admin-label">Ad Soyad</label><input type="text" id="p-name" class="admin-input" placeholder="Oyunçu adı"></div>
+            <div><label class="admin-label">Nömrə</label><input type="number" id="p-num" class="admin-input" placeholder="10" min="1" max="99"></div>
+          </div>
+          <div class="admin-form-row">
+            <div><label class="admin-label">Mövqe</label>
+              <select id="p-pos" class="admin-input admin-select">
+                <option value="GK">Qapıçı (GK)</option>
+                <option value="DF">Müdafiəçi (DF)</option>
+                <option value="MF">Yarımmüdafiəçi (MF)</option>
+                <option value="FW">Hücumçu (FW)</option>
+              </select>
+            </div>
+            <div><label class="admin-label">Milliyyət / Bayraq emojisi</label><input type="text" id="p-flag" class="admin-input" placeholder="🇦🇿"></div>
+          </div>
+          <div class="admin-form-row">
+            <div><label class="admin-label">Yaş</label><input type="number" id="p-age" class="admin-input" placeholder="24"></div>
+            <div><label class="admin-label">Ölkə (mətn)</label><input type="text" id="p-nat" class="admin-input" placeholder="Azərbaycan"></div>
+          </div>
+          <button class="admin-btn admin-btn-primary" onclick="addPlayer()"><i class="ti ti-user-plus"></i> Oyunçu Əlavə Et</button>
+          <hr class="admin-divider">
+          <h3 style="font-size:14px;font-weight:800;color:#0D1929;margin-bottom:12px;">Mövcud Oyunçular (<span id="player-count">0</span>)</h3>
+          <div class="admin-list" id="admin-player-list"></div>
+        </div>
+
+        <!-- RESULTS TAB -->
+        <div class="admin-section" id="atab-results">
+          <h3 style="font-size:16px;font-weight:800;color:#0D1929;margin-bottom:16px;display:flex;align-items:center;gap:8px;"><i class="ti ti-plus" style="color:var(--blue);"></i> Yeni Nəticə Əlavə Et</h3>
+          <div class="admin-form-row">
+            <div><label class="admin-label">Ev sahibi</label><input type="text" id="r-home" class="admin-input" placeholder="Şahdağ Qusar"></div>
+            <div><label class="admin-label">Qonaq</label><input type="text" id="r-away" class="admin-input" placeholder="Rəqib komanda"></div>
+          </div>
+          <div class="admin-form-row">
+            <div><label class="admin-label">Hesab</label><input type="text" id="r-score" class="admin-input" placeholder="2 – 1"></div>
+            <div><label class="admin-label">Nəticə</label>
+              <select id="r-result" class="admin-input admin-select">
+                <option value="win">Qələbə</option><option value="draw">Heç-heçə</option><option value="loss">Məğlubiyyət</option>
+              </select>
+            </div>
+          </div>
+          <div class="admin-form-row">
+            <div><label class="admin-label">Tarix</label><input type="text" id="r-date" class="admin-input" placeholder="25 İyn"></div>
+            <div><label class="admin-label">Günü</label><input type="text" id="r-day" class="admin-input" placeholder="Cümə"></div>
+          </div>
+          <div class="admin-form-row full"><div><label class="admin-label">Yarışma</label><input type="text" id="r-comp" class="admin-input" value="Birinci Liqa"></div></div>
+          <button class="admin-btn admin-btn-primary" onclick="addResult()"><i class="ti ti-plus"></i> Nəticə Əlavə Et</button>
+          <hr class="admin-divider">
+          <h3 style="font-size:14px;font-weight:800;color:#0D1929;margin-bottom:12px;">Son Əlavə Edilən Nəticələr</h3>
+          <div class="admin-list" id="admin-results-list"></div>
+        </div>
+
+        <!-- SETTINGS TAB -->
+        <div class="admin-section" id="atab-settings">
+          <h3 style="font-size:16px;font-weight:800;color:#0D1929;margin-bottom:16px;">Hesab</h3>
+          <div class="admin-form-row full"><div><label class="admin-label">Cari şifrəni daxil edin</label><input type="password" id="old-pw" class="admin-input" placeholder="Cari şifrə"></div></div>
+          <div class="admin-form-row">
+            <div><label class="admin-label">Yeni şifrə</label><input type="password" id="new-pw" class="admin-input" placeholder="Yeni şifrə"></div>
+            <div><label class="admin-label">Yeni şifrəni təkrarla</label><input type="password" id="new-pw2" class="admin-input" placeholder="Eyni olmalıdır"></div>
+          </div>
+          <button class="admin-btn admin-btn-primary" onclick="changePassword()"><i class="ti ti-lock"></i> Şifrəni Dəyiş</button>
+          <hr class="admin-divider">
+          <h3 style="font-size:14px;font-weight:800;color:#0D1929;margin-bottom:12px;">Məlumatlar</h3>
+          <p style="font-size:12px;color:#6B7F96;margin-bottom:14px;">Bütün admin tərəfindən əlavə edilən məlumatlar brauzerin yaddaşında (localStorage) saxlanılır.</p>
+          <button class="admin-btn admin-btn-danger" onclick="if(confirm('Bütün admin məlumatlarını silmək istəyirsiniz?')){clearAllData();}"><i class="ti ti-trash"></i> Bütün Məlumatları Sil</button>
+          &nbsp;
+          <button class="admin-btn" style="background:#eef4ff;color:var(--blue);" onclick="adminLogout()"><i class="ti ti-logout"></i> Çıxış</button>
+        </div>
+
+      </div><!-- /admin-body -->
+    </div><!-- /admin-main-view -->
+  </div><!-- /admin-panel -->
+</div><!-- /admin-overlay -->
+
+<div class="admin-toast" id="admin-toast"><i class="ti ti-check"></i> <span id="toast-msg">Əməliyyat uğurla icra olundu</span></div>
+
+<script>
+const players=[
+  // Qapıçılar
+  {name:'Müşfiq Nadirov',pos:'GK',num:1,flag:'🇦🇿',age:24,nat:'Azərbaycan',apps:0,goals:0,cs:0,color:'#6A1DB5',photo:'https://ui-avatars.com/api/?name=MN&background=6A1DB5&color=fff&size=128&bold=true&font-size=0.4'},
+  {name:'Nail Alyshov',pos:'GK',num:31,flag:'🇦🇿',age:25,nat:'Azərbaycan',apps:0,goals:0,cs:0,color:'#6A1DB5',photo:'https://ui-avatars.com/api/?name=NA&background=6A1DB5&color=fff&size=128&bold=true&font-size=0.4'},
+  {name:'Hilal Maqsudlu',pos:'GK',num:87,flag:'🇦🇿',age:23,nat:'Azərbaycan',apps:0,goals:0,cs:0,color:'#6A1DB5',photo:'https://ui-avatars.com/api/?name=HM&background=6A1DB5&color=fff&size=128&bold=true&font-size=0.4'},
+  // Müdafiəçilər
+  {name:'Kwaku Adjei',pos:'DF',num:40,flag:'🇬🇭',age:19,nat:'Qana',apps:0,goals:0,cards:0,color:'#1A6AE0',photo:'https://ui-avatars.com/api/?name=KA&background=1A6AE0&color=fff&size=128&bold=true&font-size=0.4'},
+  {name:'Salah Eddine Benhia',pos:'DF',num:0,flag:'🇲🇦',age:20,nat:'Mərakəş',apps:0,goals:0,cards:0,color:'#1A6AE0',photo:'https://ui-avatars.com/api/?name=SB&background=1A6AE0&color=fff&size=128&bold=true&font-size=0.4'},
+  {name:'Cavad Qurbanly',pos:'DF',num:4,flag:'🇦🇿',age:24,nat:'Azərbaycan',apps:0,goals:0,cards:0,color:'#1A6AE0',photo:'https://ui-avatars.com/api/?name=CQ&background=1A6AE0&color=fff&size=128&bold=true&font-size=0.4'},
+  {name:'Ramin Abdullayev',pos:'DF',num:5,flag:'🇦🇿',age:23,nat:'Azərbaycan',apps:0,goals:0,cards:0,color:'#1A6AE0',photo:'https://ui-avatars.com/api/?name=RA&background=1A6AE0&color=fff&size=128&bold=true&font-size=0.4'},
+  {name:'Azamat Alakbarli',pos:'DF',num:6,flag:'🇦🇿',age:28,nat:'Azərbaycan',apps:0,goals:0,cards:0,color:'#1A6AE0',photo:'https://ui-avatars.com/api/?name=AA&background=1A6AE0&color=fff&size=128&bold=true&font-size=0.4'},
+  {name:'Seymur Aliyev',pos:'DF',num:44,flag:'🇦🇿',age:26,nat:'Azərbaycan',apps:0,goals:0,cards:0,color:'#1A6AE0',photo:'https://ui-avatars.com/api/?name=SA&background=1A6AE0&color=fff&size=128&bold=true&font-size=0.4'},
+  {name:'Maharram Orucov',pos:'DF',num:3,flag:'🇦🇿',age:25,nat:'Azərbaycan',apps:0,goals:0,cards:0,color:'#1A6AE0',photo:'https://ui-avatars.com/api/?name=MO&background=1A6AE0&color=fff&size=128&bold=true&font-size=0.4'},
+  {name:'Firuz Ahmadov',pos:'DF',num:55,flag:'🇦🇿',age:25,nat:'Azərbaycan',apps:0,goals:0,cards:0,color:'#1A6AE0',photo:'https://ui-avatars.com/api/?name=FA&background=1A6AE0&color=fff&size=128&bold=true&font-size=0.4'},
+  // Yarımmüdafiəçilər
+  {name:'Rahid Amirquliyev',pos:'MF',num:14,flag:'🇦🇿',age:36,nat:'Azərbaycan',apps:0,goals:0,assists:0,color:'#0E8C5A',photo:'https://ui-avatars.com/api/?name=RA&background=0E8C5A&color=fff&size=128&bold=true&font-size=0.4'},
+  {name:'Yelmar Ashurov',pos:'MF',num:17,flag:'🇦🇿',age:21,nat:'Azərbaycan',apps:0,goals:0,assists:0,color:'#0E8C5A',photo:'https://ui-avatars.com/api/?name=YA&background=0E8C5A&color=fff&size=128&bold=true&font-size=0.4'},
+  {name:'Rail Amirquliyev',pos:'MF',num:38,flag:'🇦🇿',age:20,nat:'Azərbaycan',apps:0,goals:0,assists:0,color:'#0E8C5A',photo:'https://ui-avatars.com/api/?name=RA&background=0E8C5A&color=fff&size=128&bold=true&font-size=0.4'},
+  {name:'Elshan Veysov',pos:'MF',num:29,flag:'🇦🇿',age:26,nat:'Azərbaycan',apps:0,goals:0,assists:0,color:'#0E8C5A',photo:'https://ui-avatars.com/api/?name=EV&background=0E8C5A&color=fff&size=128&bold=true&font-size=0.4'},
+  {name:'Adilkhan Qarahmadov',pos:'MF',num:77,flag:'🇦🇿',age:25,nat:'Azərbaycan',apps:0,goals:0,assists:0,color:'#0E8C5A',photo:'https://ui-avatars.com/api/?name=AQ&background=0E8C5A&color=fff&size=128&bold=true&font-size=0.4'},
+  {name:'Vüsal Aliyev',pos:'MF',num:10,flag:'🇦🇿',age:23,nat:'Azərbaycan',apps:0,goals:0,assists:0,color:'#0E8C5A',photo:'https://ui-avatars.com/api/?name=VA&background=0E8C5A&color=fff&size=128&bold=true&font-size=0.4'},
+  // Hücumçular
+  {name:'Agostinho Chipesse',pos:'FW',num:19,flag:'🇦🇴',age:22,nat:'Angola',apps:0,goals:0,assists:0,color:'#C0390A',photo:'https://ui-avatars.com/api/?name=AC&background=C0390A&color=fff&size=128&bold=true&font-size=0.4'},
+  {name:'Alassane Coulibaly',pos:'FW',num:7,flag:'🇨🇮',age:23,nat:'Kotd\'ivuar',apps:0,goals:0,assists:0,color:'#C0390A',photo:'https://ui-avatars.com/api/?name=AC&background=C0390A&color=fff&size=128&bold=true&font-size=0.4'},
+  {name:'Famil Camalov',pos:'FW',num:9,flag:'🇦🇿',age:28,nat:'Azərbaycan',apps:0,goals:0,assists:0,color:'#C0390A',photo:'https://ui-avatars.com/api/?name=FC&background=C0390A&color=fff&size=128&bold=true&font-size=0.4'},
+  {name:'Sanan Agalarov',pos:'FW',num:71,flag:'🇦🇿',age:21,nat:'Azərbaycan',apps:0,goals:0,assists:0,color:'#C0390A',photo:'https://ui-avatars.com/api/?name=SA&background=C0390A&color=fff&size=128&bold=true&font-size=0.4'},
+];
+
+const posLabel={GK:'Qapıçı',DF:'Müdafiəçi',MF:'Yarımmüdafiəçi',FW:'Hücumçu'};
+const posCls={GK:'pos-gk',DF:'pos-df',MF:'pos-mf',FW:'pos-fw'};
+const posAbbr={GK:'GK',DF:'MÜ',MF:'YM',FW:'HÜ'};
+
+function renderPlayers(filter){
+  const grid=document.getElementById('players-grid');
+  const list=filter==='all'?players:players.filter(p=>p.pos===filter);
+  grid.innerHTML=list.map(p=>{
+    const idx=players.indexOf(p);
+    return `<div class="player-card" onclick="showPlayer(${idx})" id="pc-${idx}">
+      <div class="player-num">#${p.num}</div>
+      <div class="player-avatar-wrap">
+        <img class="player-photo" src="${p.photo}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="player-initials" style="background:${p.color};display:none;">${p.name.split(' ').map(n=>n[0]).join('').substring(0,2)}</div>
+        <span class="player-pos-badge ${posCls[p.pos]}">${posAbbr[p.pos]}</span>
+      </div>
+      <div class="player-name">${p.name}</div>
+      <div class="player-role">${posLabel[p.pos]}</div>
+      <div class="player-flag">${p.flag}</div>
+    </div>`;
+  }).join('');
+}
+
+function filterPlayers(pos,btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  closeDetail();
+  renderPlayers(pos);
+}
+
+function showPlayer(idx){
+  const p=players[idx];
+  const d=document.getElementById('player-detail');
+  const pw=document.getElementById('pd-photo-wrap');
+  pw.innerHTML=`<img class="pd-photo" src="${p.photo}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+    <div class="pd-initials" style="background:${p.color};display:none;">${p.name.split(' ').map(n=>n[0]).join('').substring(0,2)}</div>`;
+  document.getElementById('pd-name').textContent=p.name+' '+p.flag;
+  document.getElementById('pd-meta').innerHTML=`
+    <span class="pd-meta-tag"><i class="ti ti-shirt"></i> #${p.num}</span>
+    <span class="pd-meta-tag"><i class="ti ti-${p.pos==='GK'?'hand-stop':p.pos==='DF'?'shield':p.pos==='MF'?'activity':'bolt'}"></i> ${posLabel[p.pos]}</span>
+    <span class="pd-meta-tag"><i class="ti ti-map-pin"></i> ${p.nat}</span>
+    <span class="pd-meta-tag"><i class="ti ti-calendar"></i> ${p.age} yaş</span>`;
+  let s=`<div class="pd-stat"><div class="pd-stat-num">${p.apps}</div><div class="pd-stat-label">Oyun</div></div>`;
+  if(p.goals!==undefined)s+=`<div class="pd-stat"><div class="pd-stat-num">${p.goals}</div><div class="pd-stat-label">Qol</div></div>`;
+  if(p.assists!==undefined)s+=`<div class="pd-stat"><div class="pd-stat-num">${p.assists}</div><div class="pd-stat-label">Ötürmə</div></div>`;
+  if(p.cs!==undefined)s+=`<div class="pd-stat"><div class="pd-stat-num">${p.cs}</div><div class="pd-stat-label">Qol Buraxmama</div></div>`;
+  if(p.cards!==undefined)s+=`<div class="pd-stat"><div class="pd-stat-num">${p.cards}</div><div class="pd-stat-label">Sarı Kart</div></div>`;
+  document.getElementById('pd-stats').innerHTML=s;
+  d.classList.add('open');
+  d.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function closeDetail(){document.getElementById('player-detail').classList.remove('open');}
+
+// ═══════════════════════════════════════════════════════════════
+// NƏTİCƏLƏR — Sofascore canlı yükləmə sistemi
+// Şahdağ Qusar FK Sofascore team ID: 490455
+// ═══════════════════════════════════════════════════════════════
+const SOFA_TEAM_ID = 490455;
+
+// Ehtiyat massiv — Sofascore-a çıxış olmadıqda göstərilir
+const fallbackResults=[
+  {date:'22 May','day':'Cümə',home:'Şahdağ Qusar',away:'Baku Sportinq',score:'1 – 1',r:'draw',comp:'Birinci Liqa'},
+  {date:'18 May','day':'Bazar ertəsi',home:'Səbail FK',away:'Şahdağ Qusar',score:'0 – 0',r:'draw',comp:'Birinci Liqa'},
+  {date:'5 May','day':'Çərşənbə',home:'Şahdağ Qusar',away:'Mingəçevir',score:'2 – 0',r:'win',comp:'Birinci Liqa'},
+  {date:'29 Apr','day':'Çərşənbə',home:'MOİK',away:'Şahdağ Qusar',score:'1 – 2',r:'win',comp:'Birinci Liqa'},
+  {date:'22 Apr','day':'Çərşənbə',home:'Zaqatala',away:'Şahdağ Qusar',score:'0 – 1',r:'win',comp:'Birinci Liqa'},
+  {date:'15 Apr','day':'Çərşənbə',home:'Şahdağ Qusar',away:'Cəbrayıl',score:'0 – 0',r:'draw',comp:'Birinci Liqa'},
+  {date:'9 Apr','day':'Cümə axşamı',home:'Difai Ağsu',away:'Şahdağ Qusar',score:'1 – 1',r:'draw',comp:'Birinci Liqa'},
+  {date:'3 Apr','day':'Cümə',home:'Şahdağ Qusar',away:'Şimal FK',score:'1 – 0',r:'win',comp:'Birinci Liqa'},
+  {date:'26 Mar','day':'Cümə',home:'Şəfa FK',away:'Şahdağ Qusar',score:'0 – 1',r:'win',comp:'Birinci Liqa'},
+  {date:'18 Mar','day':'Çərşənbə',home:'Şəfa FK',away:'Şahdağ Qusar',score:'1 – 0',r:'loss',comp:'Birinci Liqa'},
+  {date:'11 Mar','day':'Çərşənbə',home:'Şahdağ Qusar',away:'Zaqatala',score:'2 – 0',r:'win',comp:'Birinci Liqa'},
+  {date:'4 Mar','day':'Çərşənbə',home:'Baku Sportinq',away:'Şahdağ Qusar',score:'1 – 2',r:'win',comp:'Birinci Liqa'},
+  {date:'25 Feb','day':'Çərşənbə',home:'Şahdağ Qusar',away:'MOİK',score:'2 – 1',r:'win',comp:'Birinci Liqa'},
+  {date:'18 Feb','day':'Çərşənbə',home:'Cəbrayıl',away:'Şahdağ Qusar',score:'0 – 1',r:'win',comp:'Birinci Liqa'},
+  {date:'7 Feb','day':'Şənbə',home:'Şahdağ Qusar',away:'Difai Ağsu',score:'2 – 0',r:'win',comp:'Birinci Liqa'},
+  {date:'31 Jan','day':'Şənbə',home:'Şimal FK',away:'Şahdağ Qusar',score:'0 – 2',r:'win',comp:'Birinci Liqa'},
+  {date:'20 Nov','day':'Cümə',home:'Şahdağ Qusar',away:'Şəfa FK',score:'1 – 1',r:'draw',comp:'Birinci Liqa'},
+  {date:'13 Nov','day':'Cümə',home:'Mingəçevir',away:'Şahdağ Qusar',score:'2 – 3',r:'win',comp:'Birinci Liqa'},
+  {date:'6 Nov','day':'Cümə',home:'Şahdağ Qusar',away:'Cəbrayıl',score:'1 – 0',r:'win',comp:'Birinci Liqa'},
+  {date:'30 Oct','day':'Cümə',home:'Zaqatala',away:'Şahdağ Qusar',score:'1 – 2',r:'win',comp:'Birinci Liqa'},
+  {date:'23 Oct','day':'Cümə',home:'Şahdağ Qusar',away:'Baku Sportinq',score:'0 – 1',r:'loss',comp:'Birinci Liqa'},
+  {date:'16 Oct','day':'Cümə',home:'Səbail FK',away:'Şahdağ Qusar',score:'2 – 1',r:'loss',comp:'Birinci Liqa'},
+  {date:'9 Oct','day':'Cümə',home:'Şahdağ Qusar',away:'MOİK',score:'2 – 0',r:'win',comp:'Birinci Liqa'},
+  {date:'1 Okt','day':'Çərşənbə',home:'Şahdağ Qusar',away:'Mingəçevir',score:'0 – 0',r:'draw',comp:'Birinci Liqa'},
+  {date:'25 Sep','day':'Cümə',home:'Difai Ağsu',away:'Şahdağ Qusar',score:'0 – 2',r:'win',comp:'Birinci Liqa'},
+  {date:'18 Sep','day':'Cümə',home:'Şahdağ Qusar',away:'Baku Sportinq',score:'0 – 0',r:'draw',comp:'Birinci Liqa'},
+  {date:'11 Sep','day':'Cümə',home:'MOİK',away:'Şahdağ Qusar',score:'1 – 2',r:'win',comp:'Birinci Liqa'},
+];
+
+let results = [...fallbackResults];
+let fixtures = [];
+
+// Tarixi Azərbaycan dilinə çevir
+function formatDate(ts){
+  const d=new Date(ts*1000);
+  const months=['Yan','Fev','Mar','Apr','May','İyn','İyl','Avq','Sen','Okt','Noy','Dek'];
+  const days=['Bazar','Bazar ertəsi','Çərşənbə axşamı','Çərşənbə','Cümə axşamı','Cümə','Şənbə'];
+  return {date:`${d.getDate()} ${months[d.getMonth()]}`, day:days[d.getDay()]};
+}
+
+// Matç statusuna görə nəticə müəyyənləşdir
+function getResult(event){
+  const isHome = event.homeTeam.id === SOFA_TEAM_ID;
+  const hs = event.homeScore?.current ?? 0;
+  const as = event.awayScore?.current ?? 0;
+  if(hs===as) return 'draw';
+  if(isHome) return hs>as?'win':'loss';
+  return as>hs?'win':'loss';
+}
+
+// Sofascore-dan nəticə + gələcək oyunları yüklə
+async function loadLiveResults(){
+  const rsStatusEl = document.getElementById('results-status');
+  try{
+    // Əvvəlcə mövsüm ID-sini al
+    const seasonRes = await fetch(`https://api.sofascore.com/api/v1/unique-tournament/${SOFA_TOURNAMENT_ID}/seasons`,{headers:{'X-Requested-With':'XMLHttpRequest'}});
+    if(!seasonRes.ok) throw new Error('season');
+    const seasonData = await seasonRes.json();
+    const seasonId = seasonData.seasons?.[0]?.id;
+    if(!seasonId) throw new Error('no season');
+
+    // Komandanın bu mövsümdəki oyunlarını al
+    const evRes = await fetch(`https://api.sofascore.com/api/v1/team/${SOFA_TEAM_ID}/events/last/0`,{headers:{'X-Requested-With':'XMLHttpRequest'}});
+    const upRes = await fetch(`https://api.sofascore.com/api/v1/team/${SOFA_TEAM_ID}/events/next/0`,{headers:{'X-Requested-With':'XMLHttpRequest'}});
+
+    const liveResults=[];
+    const liveFixtures=[];
+
+    if(evRes.ok){
+      const evData = await evRes.json();
+      const events = evData.events || [];
+      // Yalnız bu mövsümü süz
+      const filtered = events.filter(e=>e.season?.id===seasonId||true).reverse();
+      filtered.forEach(e=>{
+        const {date,day} = formatDate(e.startTimestamp);
+        const hs = e.homeScore?.current??'-';
+        const as = e.awayScore?.current??'-';
+        liveResults.push({
+          date, day,
+          home: e.homeTeam.name,
+          away: e.awayTeam.name,
+          score: `${hs} – ${as}`,
+          r: getResult(e),
+          comp: e.tournament?.name || 'Birinci Liqa'
+        });
+      });
+    }
+
+    if(upRes.ok){
+      const upData = await upRes.json();
+      const upcoming = upData.events || [];
+      upcoming.forEach(e=>{
+        const {date,day} = formatDate(e.startTimestamp);
+        const d=new Date(e.startTimestamp*1000);
+        const hh=String(d.getHours()).padStart(2,'0');
+        const mm=String(d.getMinutes()).padStart(2,'0');
+        liveFixtures.push({
+          date, day,
+          home: e.homeTeam.name,
+          away: e.awayTeam.name,
+          time: `${hh}:${mm}`,
+          comp: e.tournament?.name || 'Birinci Liqa',
+          venue: e.venue?.name || '—'
+        });
+      });
+    }
+
+    if(liveResults.length){
+      results = liveResults;
+      fixtures = liveFixtures;
+      renderResults();
+      if(rsStatusEl) rsStatusEl.innerHTML='<span class="live-dot"></span>';
+    } else {
+      throw new Error('empty');
+    }
+  }catch(e){
+    // CORS və ya şəbəkə xətası — ehtiyat məlumatla davam et
+    if(rsStatusEl) rsStatusEl.innerHTML='<i class="ti ti-database" style="font-size:12px;"></i> Son yoxlanmış nəticələr (canlı sorğu mümkün olmadı)';
+    results = [...fallbackResults];
+    fixtures = [];
+    renderResults();
+  }
+}
+
+function renderResults(){
+  const lmap={win:'Q',draw:'B',loss:'M'};
+  const cmap={win:'win',draw:'draw',loss:'loss'};
+
+  const el=document.getElementById('results-list');
+  if(!el)return;
+  el.innerHTML=results.length?results.map(r=>{
+    const bold=t=>t==='Şahdağ Qusar'||t==='Shahdag Qusar'?`<strong style="color:var(--blue);">${t}</strong>`:t;
+    return `<div class="result-row">
+      <div class="result-date"><i class="ti ti-calendar-event"></i>${r.date}<span style="font-size:10px;">${r.day}</span></div>
+      <div style="flex:1;">
+        <div class="result-teams">${bold(r.home)} <span class="muted">vs</span> ${bold(r.away)}</div>
+        <div class="result-comp"><i class="ti ti-trophy"></i>${r.comp}</div>
+      </div>
+      <div class="result-score">${r.score}</div>
+      <div class="result-badge ${cmap[r.r]}">${lmap[r.r]}</div>
+    </div>`;
+  }).join(''):'<p style="color:var(--text-3);text-align:center;padding:24px;">Məlumat yüklənir…</p>';
+
+  const fel=document.getElementById('fixtures-list');
+  if(!fel)return;
+  fel.innerHTML=fixtures.length?fixtures.map(f=>`
+    <div class="fixture-row">
+      <div class="fixture-date"><i class="ti ti-calendar-due"></i>${f.date}<span style="font-size:10px;color:var(--blue);font-weight:700;">${f.time}</span></div>
+      <div class="fixture-info">
+        <div class="fixture-teams">${f.home} <span style="color:var(--text-3);font-size:12px;font-weight:500;">vs</span> ${f.away}</div>
+        <div class="fixture-meta">
+          <span><i class="ti ti-trophy"></i>${f.comp}</span>
+          <span><i class="ti ti-map-pin"></i>${f.venue||'—'}</span>
+        </div>
+      </div>
+      <div class="fixture-tag"><i class="ti ti-clock" style="font-size:11px;margin-right:3px;"></i>${f.time}</div>
+    </div>
+  `).join(''):'<p style="color:var(--text-3);text-align:center;padding:24px;">Planlaşdırılmış oyun yoxdur.</p>';
+}
+
+const SOFA_TOURNAMENT_ID=736; // Azərbaycan Birinci Liqa (Sofascore turnir ID-si)
+const SOFA_TEAM_LOGO=id=>`https://img.sofascore.com/api/v1/team/${id}/image`;
+
+// Sofascore-dan əl ilə təsdiqlənmiş son etibarlı snapshot (ehtiyat məlumat).
+// Səhifə açılanda aşağıdakı skript canlı məlumatı çəkməyə çalışır;
+// alınmasa (CORS və ya şəbəkə məhdudiyyəti), bu massiv istifadə olunur.
+const standings=[
+  {pos:1,name:'Şəfa FK',teamId:490456,p:24,gd:31,pts:53},
+  {pos:2,name:'Səbail FK',teamId:231384,p:24,gd:25,pts:46},
+  {pos:3,name:'Energetik Mingəçevir',teamId:36582,p:24,gd:25,pts:45},
+  {pos:4,name:'Baku Sporting FK',teamId:490458,p:24,gd:13,pts:42},
+  {pos:5,name:'Şahdağ Qusar',teamId:490455,p:27,gd:7,pts:43,hl:true},
+  {pos:6,name:'MOİK Baku',teamId:37752,p:24,gd:-9,pts:29},
+  {pos:7,name:'PFK Zaqatala',teamId:206058,p:24,gd:-12,pts:25},
+  {pos:8,name:'Cəbrayıl',teamId:498732,p:24,gd:-13,pts:24},
+  {pos:9,name:'Şimal FK',teamId:521875,p:24,gd:-38,pts:16},
+  {pos:10,name:'Difai Ağsu',teamId:488680,p:24,gd:-29,pts:14},
+];
+
+function renderStandings(){
+  const pc={1:'p1',2:'p2',3:'p3'};
+  document.getElementById('standings-body').innerHTML=standings.map(t=>`
+    <tr${t.hl?' class="hl"':''}>
+      <td><span class="pos-badge ${pc[t.pos]||'pn'}">${t.pos}</span></td>
+      <td><span class="team-name"><img class="team-logo" src="${SOFA_TEAM_LOGO(t.teamId)}" alt="" onerror="this.style.display='none';">${t.name}${t.hl?'<span class="you">SİZ</span>':''}</span></td>
+      <td>${t.p}</td>
+      <td>${t.gd>0?'+':''}${t.gd}</td>
+      <td class="pts-cell">${t.pts}</td>
+    </tr>
+  `).join('');
+}
+
+// Canlı yenilənmə cəhdi: Sofascore-un açıq API-sindən cədvəli çəkməyə çalışır.
+// Brauzerdə CORS bloklasa, sakitcə ehtiyat (yuxarıdaki) massivlə davam edir.
+async function loadLiveStandings(){
+  const statusEl=document.getElementById('live-status');
+  try{
+    const seasonRes=await fetch(`https://api.sofascore.com/api/v1/unique-tournament/${SOFA_TOURNAMENT_ID}/seasons`);
+    if(!seasonRes.ok)throw new Error('seasons fetch failed');
+    const seasonData=await seasonRes.json();
+    const seasonId=seasonData.seasons&&seasonData.seasons[0]&&seasonData.seasons[0].id;
+    if(!seasonId)throw new Error('season id tapılmadı');
+    const standRes=await fetch(`https://api.sofascore.com/api/v1/unique-tournament/${SOFA_TOURNAMENT_ID}/season/${seasonId}/standings/total`);
+    if(!standRes.ok)throw new Error('standings fetch failed');
+    const standData=await standRes.json();
+    const rows=standData.standings&&standData.standings[0]&&standData.standings[0].rows;
+    if(!rows||!rows.length)throw new Error('cədvəl boşdur');
+    const live=rows.map(r=>({
+      pos:r.position,
+      name:r.team.name,
+      teamId:r.team.id,
+      p:r.matches,
+      gd:r.scoresFor-r.scoresAgainst,
+      pts:r.points,
+      hl:r.team.id===490455
+    }));
+    standings.length=0;
+    live.forEach(r=>standings.push(r));
+    renderStandings();
+    if(statusEl)statusEl.innerHTML='<span class="live-dot"></span>Canlı yeniləndi (Sofascore)';
+  }catch(e){
+    if(statusEl)statusEl.innerHTML='<i class="ti ti-database" style="font-size:12px;">';
+  }
+}
+
+function showPage(id,btn){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  if(btn)btn.classList.add('active');
+  else document.getElementById('nb-'+id).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function switchTab(tabId,btn){
+  const parent=btn.closest('.section');
+  parent.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  parent.querySelectorAll('.tab-panel').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(tabId).classList.add('active');
+}
+
+function toggleMenu(){
+  const links=document.getElementById('nav-links');
+  const overlay=document.getElementById('nav-overlay');
+  const btn=document.getElementById('nav-toggle');
+  const isOpen=links.classList.contains('open');
+  links.classList.toggle('open',!isOpen);
+  overlay.classList.toggle('show',!isOpen);
+  btn.classList.toggle('open',!isOpen);
+}
+function closeMenu(){
+  document.getElementById('nav-links').classList.remove('open');
+  document.getElementById('nav-overlay').classList.remove('show');
+  document.getElementById('nav-toggle').classList.remove('open');
+}
+
+const revealObserver=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');revealObserver.unobserve(e.target);}});
+},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
+
+function animateCount(el){
+  const raw=el.textContent.trim();
+  const match=raw.match(/^(\d+)(.*)$/);
+  if(!match){el.classList.add('in');return;}
+  const end=parseInt(match[1],10),suffix=match[2];
+  const dur=900;const start=performance.now();
+  function step(now){
+    const p=Math.min((now-start)/dur,1);
+    const val=Math.floor(end*(1-Math.pow(1-p,3)));
+    el.textContent=val+suffix;
+    if(p<1)requestAnimationFrame(step);else el.textContent=end+suffix;
+  }
+  requestAnimationFrame(step);
+}
+const statObserver=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){animateCount(e.target);statObserver.unobserve(e.target);}});
+},{threshold:0.4});
+document.querySelectorAll('.hero-stat-num').forEach(el=>statObserver.observe(el));
+
+renderPlayers('all');
+renderResults();       // ehtiyat məlumatı dərhal göstər
+renderStandings();
+loadLiveResults();     // Sofascore-dan nəticə + gələcək oyunları yüklə
+loadLiveStandings();   // Sofascore-dan cədvəli yüklə
+
+// ═══════════════════════════════════════════════════════════════
+// ADMIN PANEL
+// ═══════════════════════════════════════════════════════════════
+const ADMIN_PW_KEY = 'sq_admin_pw';
+const DEFAULT_PW   = 'qusar1950';
+
+function getAdminPw(){ return localStorage.getItem(ADMIN_PW_KEY) || DEFAULT_PW; }
+
+function openAdmin(){
+  document.getElementById('admin-overlay').classList.add('open');
+  document.getElementById('admin-pw-input').value='';
+  document.getElementById('admin-pw-error').style.display='none';
+  document.getElementById('admin-login-view').style.display='block';
+  document.getElementById('admin-main-view').style.display='none';
+  setTimeout(()=>document.getElementById('admin-pw-input').focus(), 120);
+}
+function closeAdmin(){
+  document.getElementById('admin-overlay').classList.remove('open');
+  document.getElementById('admin-login-view').style.display='block';
+  document.getElementById('admin-main-view').style.display='none';
+}
+
+function checkAdminPw(){
+  const v = document.getElementById('admin-pw-input').value;
+  if(v === getAdminPw()){
+    document.getElementById('admin-login-view').style.display='none';
+    document.getElementById('admin-main-view').style.display='block';
+    refreshAdminLists(); loadBarInputs();
+  } else {
+    document.getElementById('admin-pw-error').style.display='block';
+    document.getElementById('admin-pw-input').value='';
+    document.getElementById('admin-pw-input').focus();
+  }
+}
+function adminLogout(){ closeAdmin(); }
+
+function switchAdminTab(id,btn){
+  document.querySelectorAll('.admin-tab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.admin-section').forEach(s=>s.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('atab-'+id).classList.add('active');
+}
+
+function showToast(msg){
+  const t=document.getElementById('admin-toast');
+  document.getElementById('toast-msg').textContent=msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2800);
+}
+
+// ── NEWS ──
+function getAdminNews(){ try{ return JSON.parse(localStorage.getItem('sq_news')||'[]'); }catch(e){return[];} }
+function saveAdminNews(arr){ localStorage.setItem('sq_news',JSON.stringify(arr)); }
+
+function addNews(){
+  const title = document.getElementById('n-title').value.trim();
+  const cat   = document.getElementById('n-cat').value;
+  const date  = document.getElementById('n-date').value.trim() || new Date().toLocaleDateString('az-AZ',{month:'long',year:'numeric'});
+  const author= document.getElementById('n-author').value.trim() || 'Redaksiya';
+  const color = document.getElementById('n-color').value;
+  const icon  = document.getElementById('n-icon').value.trim() || 'ti-news';
+  if(!title){ showToast('⚠️ Başlıq daxil edin'); return; }
+  const arr = getAdminNews();
+  arr.unshift({id:Date.now(), title, cat, date, author, color, icon});
+  saveAdminNews(arr);
+  applyNewsToPage();
+  refreshAdminLists();
+  document.getElementById('n-title').value='';
+  showToast('✅ Xəbər əlavə edildi');
+}
+
+function deleteNews(id){
+  const arr = getAdminNews().filter(n=>n.id!==id);
+  saveAdminNews(arr);
+  applyNewsToPage();
+  refreshAdminLists();
+  showToast('🗑️ Xəbər silindi');
+}
+
+const colorMap={blue:'news-img-blue',gold:'news-img-gold',green:'news-img-green'};
+const iconColorMap={blue:'#378ADD',gold:'#BA7517',green:'#3B6D11'};
+
+function applyNewsToPage(){
+  const all = getAdminNews();
+  if(!all.length) return;
+  const grid = document.querySelector('.news-grid');
+  if(!grid) return;
+  // Prepend admin news before existing static ones
+  const existing = Array.from(grid.querySelectorAll('.news-card[data-static]'));
+  const adminCards = all.map(n=>{
+    const cls = colorMap[n.color]||'news-img-blue';
+    const ic  = n.icon.startsWith('ti-') ? n.icon : 'ti-'+n.icon;
+    const col = iconColorMap[n.color]||'#378ADD';
+    const el  = document.createElement('div');
+    el.className='news-card reveal';
+    el.dataset.adminId=n.id;
+    el.innerHTML=`<div class="news-img ${cls}">
+      <span class="news-cat">${n.cat}</span>
+      <i class="ti ${ic}" style="font-size:48px;color:${col};opacity:0.7;"></i>
+    </div>
+    <div class="news-body">
+      <div class="news-title">${n.title}</div>
+      <div class="news-meta"><i class="ti ti-calendar"></i> ${n.date} &nbsp;·&nbsp; <i class="ti ti-user"></i> ${n.author}</div>
+    </div>`;
+    return el;
+  });
+  // Remove old admin cards
+  grid.querySelectorAll('[data-admin-id]').forEach(el=>el.remove());
+  // Insert admin cards at top
+  adminCards.reverse().forEach(el=>grid.insertBefore(el, grid.firstChild));
+}
+
+// ── NEWS BAR ──
+function loadBarInputs(){
+  const bar = JSON.parse(localStorage.getItem('sq_bar')||'{}');
+  document.getElementById('bar-label').value  = bar.label  || 'Transfer xəbəri';
+  document.getElementById('bar-teams').value  = bar.teams  || 'Mehrac Baxşalı → Şahdağ Qusar';
+  document.getElementById('bar-info1').value  = bar.info1  || 'Qəbələdən icarə əsasında transfer (İyun 2026)';
+  document.getElementById('bar-info2').value  = bar.info2  || 'Yeni mövsüm: sentyabr 2026';
+}
+function saveBar(){
+  const bar={
+    label : document.getElementById('bar-label').value,
+    teams : document.getElementById('bar-teams').value,
+    info1 : document.getElementById('bar-info1').value,
+    info2 : document.getElementById('bar-info2').value,
+  };
+  localStorage.setItem('sq_bar',JSON.stringify(bar));
+  applyBarToPage();
+  showToast('✅ Xəbər barı yeniləndi');
+}
+function applyBarToPage(){
+  const bar = JSON.parse(localStorage.getItem('sq_bar')||'{}');
+  const b = document.querySelector('.next-match-bar');
+  if(!b) return;
+  const labelEl = b.querySelector('.nm-label');
+  const teamsEl = b.querySelector('.nm-teams');
+  const infoEls = b.querySelectorAll('.nm-info');
+  if(bar.label && labelEl) labelEl.innerHTML=`<i class="ti ti-antenna"></i> ${bar.label}`;
+  if(bar.teams && teamsEl){
+    const parts = bar.teams.split('→');
+    teamsEl.innerHTML = parts.length===2
+      ? `<strong>${parts[0].trim()}</strong> <span class="nm-sep">→</span> <strong>${parts[1].trim()}</strong>`
+      : bar.teams;
+  }
+  if(bar.info1 && infoEls[0]) infoEls[0].innerHTML=`<i class="ti ti-arrows-exchange" style="font-size:13px;"></i> ${bar.info1}`;
+  if(bar.info2 && infoEls[1]) infoEls[1].innerHTML=`<i class="ti ti-calendar-event" style="font-size:13px;"></i> ${bar.info2}`;
+}
+
+// ── PLAYERS ──
+function getAdminPlayers(){ try{ return JSON.parse(localStorage.getItem('sq_players')||'[]'); }catch(e){return[];} }
+function saveAdminPlayers(arr){ localStorage.setItem('sq_players',JSON.stringify(arr)); }
+const posColorMap={GK:'#6A1DB5',DF:'#1A6AE0',MF:'#0E8C5A',FW:'#C0390A'};
+
+function addPlayer(){
+  const name = document.getElementById('p-name').value.trim();
+  const num  = parseInt(document.getElementById('p-num').value)||0;
+  const pos  = document.getElementById('p-pos').value;
+  const flag = document.getElementById('p-flag').value.trim()||'🇦🇿';
+  const age  = parseInt(document.getElementById('p-age').value)||20;
+  const nat  = document.getElementById('p-nat').value.trim()||'Azərbaycan';
+  if(!name){ showToast('⚠️ Ad daxil edin'); return; }
+  const initials = name.split(' ').map(n=>n[0]).join('').substring(0,2).toUpperCase();
+  const color = posColorMap[pos]||'#1A6AE0';
+  const photo = `https://ui-avatars.com/api/?name=${initials}&background=${color.replace('#','')}&color=fff&size=128&bold=true&font-size=0.4`;
+  const arr = getAdminPlayers();
+  arr.push({id:Date.now(), name, num, pos, flag, age, nat, apps:0, goals:0, assists:0, cs:0, cards:0, color, photo});
+  saveAdminPlayers(arr);
+  // Add to main players array and re-render
+  players.push(arr[arr.length-1]);
+  renderPlayers('all');
+  refreshAdminLists();
+  ['p-name','p-num','p-flag','p-age','p-nat'].forEach(id=>document.getElementById(id).value='');
+  showToast('✅ Oyunçu əlavə edildi');
+}
+
+function deleteAdminPlayer(id){
+  const arr = getAdminPlayers().filter(p=>p.id!==id);
+  saveAdminPlayers(arr);
+  // Remove from main players array
+  const idx = players.findIndex(p=>p.id===id);
+  if(idx!==-1) players.splice(idx,1);
+  renderPlayers('all');
+  refreshAdminLists();
+  showToast('🗑️ Oyunçu silindi');
+}
+
+// ── RESULTS ──
+function getAdminResults(){ try{ return JSON.parse(localStorage.getItem('sq_results')||'[]'); }catch(e){return[];} }
+function saveAdminResults(arr){ localStorage.setItem('sq_results',JSON.stringify(arr)); }
+
+function addResult(){
+  const home  = document.getElementById('r-home').value.trim();
+  const away  = document.getElementById('r-away').value.trim();
+  const score = document.getElementById('r-score').value.trim();
+  const r     = document.getElementById('r-result').value;
+  const date  = document.getElementById('r-date').value.trim();
+  const day   = document.getElementById('r-day').value.trim();
+  const comp  = document.getElementById('r-comp').value.trim()||'Birinci Liqa';
+  if(!home||!away||!score){ showToast('⚠️ Bütün sahələri doldurun'); return; }
+  const arr = getAdminResults();
+  arr.unshift({id:Date.now(), home, away, score, r, date, day, comp});
+  saveAdminResults(arr);
+  // Prepend to results array
+  results.unshift({home, away, score, r, date, day, comp});
+  renderResults();
+  refreshAdminLists();
+  ['r-home','r-away','r-score','r-date','r-day'].forEach(id=>document.getElementById(id).value='');
+  showToast('✅ Nəticə əlavə edildi');
+}
+
+function deleteAdminResult(id){
+  const arr = getAdminResults().filter(r=>r.id!==id);
+  saveAdminResults(arr);
+  refreshAdminLists();
+  showToast('🗑️ Nəticə silindi');
+}
+
+// ── REFRESH LISTS ──
+function refreshAdminLists(){
+  // News list
+  const news = getAdminNews();
+  const nl = document.getElementById('admin-news-list');
+  if(nl) nl.innerHTML = news.length ? news.map(n=>`
+    <div class="admin-list-item">
+      <div class="admin-list-item-info">
+        <div class="admin-list-item-title">${n.title}</div>
+        <div class="admin-list-item-sub"><span class="admin-badge admin-badge-blue">${n.cat}</span> &nbsp; ${n.date}</div>
+      </div>
+      <button class="admin-btn admin-btn-danger" onclick="deleteNews(${n.id})" style="padding:6px 12px;font-size:12px;"><i class="ti ti-trash"></i></button>
+    </div>`).join('') : '<p style="color:#6B7F96;font-size:13px;text-align:center;padding:16px;">Hələlik xəbər yoxdur</p>';
+
+  // Players list
+  const ap = getAdminPlayers();
+  const pl = document.getElementById('admin-player-list');
+  const pc = document.getElementById('player-count');
+  if(pc) pc.textContent = players.length;
+  if(pl) pl.innerHTML = ap.length ? ap.map(p=>`
+    <div class="admin-list-item">
+      <div style="width:36px;height:36px;border-radius:50%;background:${p.color};display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:900;color:#fff;font-size:13px;flex-shrink:0;">
+        ${p.name.split(' ').map(n=>n[0]).join('').substring(0,2)}</div>
+      <div class="admin-list-item-info">
+        <div class="admin-list-item-title">${p.flag} ${p.name} <span class="admin-badge admin-badge-blue">#${p.num}</span></div>
+        <div class="admin-list-item-sub">${{GK:'Qapıçı',DF:'Müdafiəçi',MF:'Yarımmüdafiəçi',FW:'Hücumçu'}[p.pos]} · ${p.nat} · ${p.age} yaş</div>
+      </div>
+      <button class="admin-btn admin-btn-danger" onclick="deleteAdminPlayer(${p.id})" style="padding:6px 12px;font-size:12px;"><i class="ti ti-trash"></i></button>
+    </div>`).join('') : '<p style="color:#6B7F96;font-size:13px;text-align:center;padding:16px;">Admin tərəfindən oyunçu əlavə edilməyib</p>';
+
+  // Results list
+  const ar = getAdminResults();
+  const rl = document.getElementById('admin-results-list');
+  const rc = {win:'admin-badge-green',draw:'admin-badge-gold',loss:'admin-badge-red'};
+  const rl2= {win:'Q',draw:'B',loss:'M'};
+  if(rl) rl.innerHTML = ar.length ? ar.map(r=>`
+    <div class="admin-list-item">
+      <div class="admin-list-item-info">
+        <div class="admin-list-item-title">${r.home} vs ${r.away} — <strong>${r.score}</strong></div>
+        <div class="admin-list-item-sub"><span class="admin-badge ${rc[r.r]}">${rl2[r.r]}</span> &nbsp; ${r.date} &nbsp;·&nbsp; ${r.comp}</div>
+      </div>
+      <button class="admin-btn admin-btn-danger" onclick="deleteAdminResult(${r.id})" style="padding:6px 12px;font-size:12px;"><i class="ti ti-trash"></i></button>
+    </div>`).join('') : '<p style="color:#6B7F96;font-size:13px;text-align:center;padding:16px;">Admin tərəfindən nəticə əlavə edilməyib</p>';
+}
+
+// ── PASSWORD CHANGE ──
+function changePassword(){
+  const old   = document.getElementById('old-pw').value;
+  const nw    = document.getElementById('new-pw').value;
+  const nw2   = document.getElementById('new-pw2').value;
+  if(old !== getAdminPw()){ showToast('⚠️ Cari şifrə yanlışdır'); return; }
+  if(nw.length < 4){ showToast('⚠️ Yeni şifrə ən az 4 simvol olmalıdır'); return; }
+  if(nw !== nw2){ showToast('⚠️ Şifrələr uyğun gəlmir'); return; }
+  localStorage.setItem(ADMIN_PW_KEY, nw);
+  ['old-pw','new-pw','new-pw2'].forEach(id=>document.getElementById(id).value='');
+  showToast('✅ Şifrə dəyişdirildi');
+}
+
+// ── CLEAR ALL ──
+function clearAllData(){
+  ['sq_news','sq_bar','sq_players','sq_results'].forEach(k=>localStorage.removeItem(k));
+  // Restore original players (reload page approach)
+  showToast('🗑️ Bütün məlumatlar silindi — səhifə yenilənir');
+  setTimeout(()=>location.reload(), 1500);
+}
+
+// ── GİZLİ KLAVİATURA QISAYOLU: Ctrl + Shift + A ──
+document.addEventListener('keydown', function(e){
+  if(e.ctrlKey && e.shiftKey && e.key === 'A'){
+    e.preventDefault();
+    openAdmin();
+  }
+});
+
+(function initAdminData(){
+  applyNewsToPage();
+  applyBarToPage();
+  // Add saved players to players array
+  getAdminPlayers().forEach(p=>{ if(!players.find(x=>x.id===p.id)) players.push(p); });
+  renderPlayers('all');
+  // Add saved results to results array
+  const ar = getAdminResults();
+  ar.forEach(r=>{ if(!results.find(x=>x.id===r.id)) results.unshift(r); });
+  renderResults();
+  // Mark static news cards
+  document.querySelectorAll('.news-card:not([data-admin-id])').forEach(el=>el.dataset.static='1');
+  // Reload applied news
+  applyNewsToPage();
+})();
+</script>
+</body>
+</html>
